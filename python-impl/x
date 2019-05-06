@@ -1,24 +1,13 @@
 python
 
-NGM parity: False
-NGM w: Fq2(Fq(0x176e6..e578f), Fq(0x47e4f..656a5))
-NGM ~w: Fq2(Fq(0xfab63..67136), Fq(0x166db..db0ed))
-
-
-
-NGM w: Fq2(Fq(0x7377a..6c100), Fq(0x1413b..956f9))
+NGM(hash) x: 15132376222941642752
+NGM(hash) p2: AffinePoint(x=Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a)), y=Fq2(Fq(0xb7d5c..cbd04), Fq(0xa2179..fc428)), i=False)
 
 # ==============================================================================
 
 go
 
-NGM parity: false
-NGM w: Fq2(Fq(0x176e6f29d2745a8b937f7f4e71ce44780d8cdb1b151fe1afb5dd69b10d46a7ff299bf69c78ffe769b2d4b371259e578f) + Fq(0x047e4f57185efca38e67364b349bbda08a95ee0a132139f149abad3448e963cb5d97e9bf5d44d1ef3e084773720656a5) * u)
-
-NGM ~w: Fq2(Fq(0x00d6db58dbdde5a25c0bcabb995c440c0da305a66422bcf390078c2555d21dc7be7f642b80e0e12e1f9adfdfa074a706) + Fq(0x0099d9d7b076ff58da5193de045619a446afb7aa8afee3f7609fd9143fad299eb3c3c5b5053b84007ea029d9152f5776) * u)
-
-NGM w post sqrt(-3): Fq2(Fq(0x0e63d8f6574b2307ad44c3b644af7b04a3c055e937f8d8152828e964707ebad941b7ef9e54787e6fc0ea06cc535e49a0) + Fq(0x1880ba53d3c23e070ddd9c707f7dac8f8fe65af94155cf7aa5dc8d32b75ca6d618bb52b0f70fdb520f998bf7de70f207) * u)
-
-
+NGM(XHashG2) x: 15132376222941642752
+NGM(XHashG2) p2: G2(x=Fq2(Fq(0x06427044c2270e673490af1756c840361b4090bca24ae94a2f6ad442a5470e94dc6dd392834cf28f3274e85dc2d036e4) + Fq(0x0efe0745224dd9cc23e7d7d63ba7b86ea8deee05b113e02c607afc75f740cb4d0c01d2d361e3fd028b9c24d816afb45a) * u), y=Fq2(Fq(0x0b7d5c8331ab2a86a94a97acdd248d828d2f7fefa3429a0637076418882154099f40023d81b1f43f6ae860901ebcbd04) + Fq(0x0a21795e4ad60a5630d919d16421cdcf494ef30f91ebd2c07755ab5493444366e831c16c26bd010d6b87ea6fa59fc428) * u))
 
 
