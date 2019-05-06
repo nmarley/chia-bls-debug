@@ -400,7 +400,6 @@ def psi(P, ec=default_ec):
 # Rust pairings hashing https://github.com/zkcrypto/pairing
 # https://www.di.ens.fr/~fouque/pub/latincrypt12.pdf
 def sw_encode(t, ec=default_ec, FE=Fq, debug=False):
-# ngm
     if t == 0:  # Maps t=0 to the point at infinity
         return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                              FE.zero(ec.q), True, ec)
@@ -413,15 +412,11 @@ def sw_encode(t, ec=default_ec, FE=Fq, debug=False):
         if t[1] > (-t)[1]:
             parity = True
 
-    if debug == True : print("NGM parity:", parity)
-
     # w = t^2 + b + 1
     w = t * t + ec.b + 1
-    if debug == True : print("NGM w:", w)
 
     # Map w=0 to generator and its negation
     if w == 0:
-        if debug == True : print("NGM w IS ZERO!!!")
         if FE == Fq:
             ret = generator_Fq(ec)
         else:
@@ -430,9 +425,7 @@ def sw_encode(t, ec=default_ec, FE=Fq, debug=False):
             ret = ret.negate()
         return ret
 
-    if debug == True : print("NGM ~w:", ~w)
     w = ~w * ec.sqrt_n3 * t
-    if debug == True : print("NGM w:", w)
 
     # At least 1 of x1, x2, x3 is guaranteed to be a valid x
     # x1 = -wt + sqrt(-3)
@@ -489,35 +482,27 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     if type(m) != bytes:
         m = m.encode("utf-8")
     t0_0 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_0_c0"), "big"))
-    # print("NGM t0_0:", t0_0.serialize().hex())
-
     t0_1 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_0_c1"), "big"))
-    # print("NGM t0_1:", t0_1.serialize().hex())
-
     t1_0 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_1_c0"), "big"))
-    # print("NGM t1_0:", t1_0.serialize().hex())
-
     t1_1 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_1_c1"), "big"))
-    # print("NGM t1_1:", t1_1.serialize().hex())
-
     t0 = Fq2(ec.q, t0_0, t0_1)
-    #print("NGM t0:", t0.serialize().hex())
-
     t1 = Fq2(ec.q, t1_0, t1_1)
-    #print("NGM t1:", t1.serialize().hex())
-
     part1 = sw_encode(t0, ec, Fq2, True)
-    print("NGM part1:", part1.serialize().hex())
-
     part2 = sw_encode(t1, ec, Fq2)
-    print("NGM part2:", part2.serialize().hex())
-
     P = sw_encode(t0, ec, Fq2) + sw_encode(t1, ec, Fq2)
 
     # This is the cofactor multiplication, done in a more
     # efficient way. See page 11 of "Efficient hash maps
     # to G2 on BLS curves" by Budrioni and Pintore.
     x = -ec.x
+    print("NGM(hash) x:", x)
+
+    p2 = 2*P
+    print("NGM(hash) p2:", p2)
+
+    #inner_psi = psi(p2)
+    #print("NGM(hash) inner_psi:", inner_psi)
+
     psi2P = psi(psi(2*P, ec), ec)
     t0 = x*P
     t1 = x*t0
