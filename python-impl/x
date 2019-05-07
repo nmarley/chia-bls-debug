@@ -3,6 +3,67 @@ python
 NGM(hash) x: 15132376222941642752
 NGM(hash) p2: AffinePoint(x=Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a)), y=Fq2(Fq(0xb7d5c..cbd04), Fq(0xa2179..fc428)), i=False)
 
+NGM(untwist) point: AffinePoint(x=Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a)), y=Fq2(Fq(0xb7d5c..cbd04), Fq(0xa2179..fc428)), i=False)
+
+NGM(untwist) wsq: 
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x1), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    ),
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    )
+  )
+
+NGM(untwist) wcu:
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    ),
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x1), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    )
+  )
+
+NGM(untwist) new_x: 
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0xaa03b..ff59f), Fq(0x45dcb..fbebb))
+    ),
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    )
+  )
+
+NGM(untwist) new_y:
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0x0), Fq(0x0))
+    ),
+    Fq6(
+      Fq2(Fq(0x0), Fq(0x0)),
+      Fq2(Fq(0xacf6a..e4096), Fq(0x19532..12e3d)),
+      Fq2(Fq(0x0), Fq(0x0))
+    )
+  )
+
+NGM(hash) inner_psi: AffinePoint(x=Fq2(Fq(0x14436..9c31d), Fq(0x7fe45..b2744)), y=Fq2(Fq(0xfeafd..c5c4e), Fq(0xeb470..08fc6)), i=False)
+
+
 # ==============================================================================
 
 go
@@ -10,4 +71,43 @@ go
 NGM(XHashG2) x: 15132376222941642752
 NGM(XHashG2) p2: G2(x=Fq2(Fq(0x06427044c2270e673490af1756c840361b4090bca24ae94a2f6ad442a5470e94dc6dd392834cf28f3274e85dc2d036e4) + Fq(0x0efe0745224dd9cc23e7d7d63ba7b86ea8deee05b113e02c607afc75f740cb4d0c01d2d361e3fd028b9c24d816afb45a) * u), y=Fq2(Fq(0x0b7d5c8331ab2a86a94a97acdd248d828d2f7fefa3429a0637076418882154099f40023d81b1f43f6ae860901ebcbd04) + Fq(0x0a21795e4ad60a5630d919d16421cdcf494ef30f91ebd2c07755ab5493444366e831c16c26bd010d6b87ea6fa59fc428) * u))
 
+NGM(Untwist) wsq:
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0) + Fq(0x0) * u)
+      +
+      Fq2(Fq(0x1) + Fq(0x0) * u)*v
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v^2
+    )
+    +
+    Fq6(
+      Fq2(Fq(0x0) + Fq(0x0) * u)
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v^2
+    )
+    * w
+  )
+
+NGM(Untwist) wcu:
+  Fq12(
+    Fq6(
+      Fq2(Fq(0x0) + Fq(0x0) * u)
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v^2
+    )
+    +
+    Fq6(
+      Fq2(Fq(0x0) + Fq(0x0) * u)
+      +
+      Fq2(Fq(0x1) + Fq(0x0) * u)*v
+      +
+      Fq2(Fq(0x0) + Fq(0x0) * u)*v^2
+    )
+    * w
+  )
 
