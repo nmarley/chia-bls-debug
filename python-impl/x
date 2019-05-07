@@ -19,6 +19,12 @@ NGM(untwist) wsq:
     )
   )
 
+NGM(untwist) point.x: Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a))
+    NGM(Untwist) g.x: Fq2(Fq(0x64270..036e4) + Fq(0xefe07..fb45a) * u)
+
+NGM(untwist) ~wsq: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xd0088..fd556), Fq(0xd0088..fd555))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))))
+
+
 NGM(untwist) wcu:
   Fq12(
     Fq6(
@@ -32,6 +38,13 @@ NGM(untwist) wcu:
       Fq2(Fq(0x0), Fq(0x0))
     )
   )
+
+NGM(untwist) point.y: Fq2(Fq(0xb7d5c..cbd04), Fq(0xa2179..fc428))
+    NGM(Untwist) g.y: Fq2(Fq(0xb7d5c..cbd04) + Fq(0xa2179..fc428) * u)
+
+NGM(untwist) ~wcu: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xd0088..fd556), Fq(0xd0088..fd555)), Fq2(Fq(0x0), Fq(0x0))))
+
+NGM(Untwist) ~wcu: Fq12(Fq6(Fq2(Fq(0x0) + Fq(0x0) * u) + Fq2(Fq(0x0) + Fq(0x0) * u)*v + Fq2(Fq(0x0) + Fq(0x0) * u)*v^2) + Fq6(Fq2(Fq(0x0) + Fq(0x0) * u) + Fq2(Fq(0xd0088..fd556) + Fq(0xd0088..fd555) * u)*v + Fq2(Fq(0x0) + Fq(0x0) * u)*v^2) * w)
 
 NGM(untwist) new_x: 
   Fq12(
@@ -90,6 +103,8 @@ NGM(Untwist) wsq:
     )
     * w
   )
+
+NGM(Untwist) ~wsq: Fq12(Fq6(Fq2(Fq(0x0) + Fq(0x0) * u) + Fq2(Fq(0x0) + Fq(0x0) * u)*v + Fq2(Fq(0xd0088..fd556) + Fq(0xd0088..fd555) * u)*v^2) + Fq6(Fq2(Fq(0x0) + Fq(0x0) * u) + Fq2(Fq(0x0) + Fq(0x0) * u)*v + Fq2(Fq(0x0) + Fq(0x0) * u)*v^2) * w)
 
 NGM(Untwist) wcu:
   Fq12(

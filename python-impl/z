@@ -691,6 +691,178 @@ NGM(untwist) point: AffinePoint(x=Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a)), y
 
 NGM(untwist) wsq: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x1), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))))
 NGM(untwist) wcu: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x1), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))))
+NGM(untwist) point.x: Fq2(Fq(0x64270..036e4), Fq(0xefe07..fb45a))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x1), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x1), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM(untwist) ~wsq: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xd0088..fd556), Fq(0xd0088..fd555))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))))
+NGM(untwist) point.y: Fq2(Fq(0xb7d5c..cbd04), Fq(0xa2179..fc428))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x1), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x2)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x2)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x0)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
+NGM cls.extension = 6, other.extension = 6
+NGM i = 1, x = Fq2(Fq(0x1a011..faaaa), Fq(0x0))
+NGM cls.extension = 2, other.extension = 2
+NGM i = 0, x = Fq(0x1a011..faaaa)
+NGM cls.extension = 2, other.extension = 2
+NGM i = 1, x = Fq(0x0)
+NGM cls.extension = 6, other.extension = 6
+NGM i = 2, x = Fq2(Fq(0x0), Fq(0x0))
+NGM(untwist) ~wcu: Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xd0088..fd556), Fq(0xd0088..fd555)), Fq2(Fq(0x0), Fq(0x0))))
 NGM cls.extension = 6, other.extension = 6
 NGM i = 0, x = Fq2(Fq(0x0), Fq(0x0))
 NGM cls.extension = 6, other.extension = 6
@@ -67925,4 +68097,4 @@ NGM cls.extension = 2, other.extension = 2
 NGM i = 1, x = Fq(0x1a5a1..8449f)
 PASSED
 
-=========================== 1 passed in 0.57 seconds ===========================
+=========================== 1 passed in 0.52 seconds ===========================
