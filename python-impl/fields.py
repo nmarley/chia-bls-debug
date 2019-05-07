@@ -245,11 +245,15 @@ class FieldExtBase(tuple):
                 for j, y in enumerate(other):
                     if x and y:
                         # NGM
+                        print("NGM mul kind flds, i+j = %d, embd = %d" % ((i+j), self.embedding))
+                        print("\tNGM buf (before) = %s", buf)
                         if i+j >= self.embedding:
-                            buf[(i + j) % self.embedding] += (x * y *
-                                                              self.root)
+                            print("\tNGM in IF")
+                            buf[(i + j) % self.embedding] += (x * y * self.root)
                         else:
+                            print("\tNGM in ELSE")
                             buf[(i + j) % self.embedding] += x * y
+                        print("\tNGM buf (after) = %s", buf)
             else:
                 if x:
                     print("x eval'd to true, buf[%d] = x * other" % (i, ))
