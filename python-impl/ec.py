@@ -379,8 +379,11 @@ def untwist(point, ec=default_ec, debug=False):
     wcu = Fq12(ec.q, Fq6.zero(ec.q), f.root)
     if debug == True : print("NGM(untwist) wcu:", wcu)
 
-    #if debug == True : print("NGM(untwist) point.x:", point.x)
-    #if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
+    if debug == True : print("NGM(untwist) point.x:", point.x)
+    if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
+
+    if debug == True : print("NGM(untwist) point.y:", point.y)
+    if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
 
     new_x = point.x / wsq
     if debug == True : print("NGM(untwist) new_x:", new_x)
