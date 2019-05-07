@@ -237,11 +237,14 @@ class FieldExtBase(tuple):
             return NotImplemented
 
         buf = [cls.basefield.zero(self.Q) for _ in self]
-
         for i, x in enumerate(self):
+            #print("NGM self = %s" % (self))
+            print("NGM cls.extension = %s, other.extension = %s" % (cls.extension, other.extension))
+            print("NGM i = %d, x = %s" % (i, x))
             if cls.extension == other.extension:
                 for j, y in enumerate(other):
                     if x and y:
+                        # NGM
                         if i+j >= self.embedding:
                             buf[(i + j) % self.embedding] += (x * y *
                                                               self.root)
@@ -249,6 +252,7 @@ class FieldExtBase(tuple):
                             buf[(i + j) % self.embedding] += x * y
             else:
                 if x:
+                    print("x eval'd to true, buf[%d] = x * other" % (i, ))
                     buf[i] = x * other
         ret = super().__new__(cls, buf)
         ret.Q = self.Q

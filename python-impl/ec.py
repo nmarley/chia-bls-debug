@@ -364,19 +364,33 @@ def generator_Fq2(ec=default_ec_twist):
     return AffinePoint(ec.g2x, ec.g2y, False, ec)
 
 
-def untwist(point, ec=default_ec):
+def untwist(point, ec=default_ec, debug=False):
     """
     Given a point on G2 on the twisted curve, this converts it's
     coordinates back from Fq2 to Fq12. See Craig Costello book, look
     up twists.
     """
     f = Fq12.one(ec.q)
+
+    if debug == True : print("NGM(untwist) point:", point)
+
     wsq = Fq12(ec.q, f.root, Fq6.zero(ec.q))
+    if debug == True : print("NGM(untwist) wsq:", wsq)
     wcu = Fq12(ec.q, Fq6.zero(ec.q), f.root)
+    if debug == True : print("NGM(untwist) wcu:", wcu)
+
+    #if debug == True : print("NGM(untwist) point.x:", point.x)
+    #if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
+
+    new_x = point.x / wsq
+    if debug == True : print("NGM(untwist) new_x:", new_x)
+    new_y = point.y / wcu
+    if debug == True : print("NGM(untwist) new_y:", new_y)
+
     return AffinePoint(point.x / wsq, point.y / wcu, False, ec)
 
 
-def twist(point, ec=default_ec_twist):
+def twist(point, ec=default_ec_twist, debug=False):
     """
     Given an untwisted point, this converts it's
     coordinates to a point on the twisted curve. See Craig Costello
@@ -390,10 +404,10 @@ def twist(point, ec=default_ec_twist):
     return AffinePoint(new_x, new_y, False, ec)
 
 
-def psi(P, ec=default_ec):
-    ut = untwist(P, ec)
+def psi(P, ec=default_ec, debug=False):
+    ut = untwist(P, ec, debug)
     t = AffinePoint(ut.x.qi_power(1), ut.y.qi_power(1), False, ec)
-    t2 = twist(t, ec)
+    t2 = twist(t, ec, debug)
     return AffinePoint(t2.x[0][0], t2.y[0][0], False, ec)
 
 
@@ -500,8 +514,8 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     p2 = 2*P
     print("NGM(hash) p2:", p2)
 
-    #inner_psi = psi(p2)
-    #print("NGM(hash) inner_psi:", inner_psi)
+    inner_psi = psi(p2, debug=True)
+    print("NGM(hash) inner_psi:", inner_psi)
 
     psi2P = psi(psi(2*P, ec), ec)
     t0 = x*P
