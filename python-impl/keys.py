@@ -142,8 +142,15 @@ class PrivateKey:
                                  .to_jacobian())
 
     def sign(self, m):
-        r = hash_to_point_Fq2(m).to_jacobian()
+        r = hash_to_point_Fq2(m)
+        # NGM
+        print("NGM (sign) r = %s" % (r))
+        r = r.to_jacobian()
+        print("NGM (sign) r = %s" % (r))
         aggregation_info = AggregationInfo.from_msg(self.get_public_key(), m)
+        g2 = self.value * r
+        print("NGM (sign) g2 = %s" % (g2))
+
         return Signature.from_g2(self.value * r, aggregation_info)
 
     def sign_prehashed(self, h):
