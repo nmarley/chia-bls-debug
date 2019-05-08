@@ -526,7 +526,11 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     print("NGM(hash) t0:", t0)
 
     t1 = x*t0
+    print("NGM(hash) t1:", t1)
+
     t2 = (t1 + t0) - P
+    print("NGM(hash) t2:", t2)
+
     t3 = psi((x+1) * P, ec)
     return t2 - t3 + psi2P
 
