@@ -521,7 +521,10 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     print("NGM(hash) inner_psi:", inner_psi)
 
     psi2P = psi(psi(2*P, ec), ec)
+
     t0 = x*P
+    print("NGM(hash) t0:", t0)
+
     t1 = x*t0
     t2 = (t1 + t0) - P
     t3 = psi((x+1) * P, ec)
