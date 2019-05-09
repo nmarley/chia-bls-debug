@@ -56,9 +56,13 @@ class Fq(int):
         return (super().__gt__(other))
 
     def __str__(self):
-        s = hex(int(self))
-        s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
+# ngm
+        #s = hex(int(self))
+        #s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
+        #return "Fq(" + s2 + ")"
+        s2 = '{:096x}'.format(int(self))
         return "Fq(" + s2 + ")"
+
 
     def __repr__(self):
         return "Fq(" + hex(int(self)) + ")"
@@ -78,7 +82,7 @@ class Fq(int):
 
     def qi_power(self, i):
         return self
-    
+
     def __invert__(self):
         """
         Extended euclidian algorithm for inversion.
@@ -163,7 +167,7 @@ class Fq(int):
     @classmethod
     def from_fq(cls, Q, fq):
         return fq
-    
+
 
 class FieldExtBase(tuple):
     """
