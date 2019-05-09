@@ -144,9 +144,15 @@ class PrivateKey:
     def sign(self, m):
         r = hash_to_point_Fq2(m)
         # NGM
-        print("NGM (sign) r = %s" % (r))
+        # print("NGM (sign) r.x[0] =", r.x[0].serialize().hex())
+        # print("NGM (sign) r.x[1] =", r.x[1].serialize().hex())
+        #
+        # print("NGM (sign) r.y[0] =", r.y[0].serialize().hex())
+        # print("NGM (sign) r.y[1] =", r.y[1].serialize().hex())
+
+        print("NGM (sign) self.value = %s" % (hex(self.value)))
+
         r = r.to_jacobian()
-        print("NGM (sign) r = %s" % (r))
         aggregation_info = AggregationInfo.from_msg(self.get_public_key(), m)
         g2 = self.value * r
         print("NGM (sign) g2 = %s" % (g2))
