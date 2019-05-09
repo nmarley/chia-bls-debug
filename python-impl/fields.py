@@ -56,13 +56,11 @@ class Fq(int):
         return (super().__gt__(other))
 
     def __str__(self):
-# ngm
-        #s = hex(int(self))
-        #s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
-        #return "Fq(" + s2 + ")"
-        s2 = '{:096x}'.format(int(self))
+        s = hex(int(self))
+        s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
         return "Fq(" + s2 + ")"
-
+        # NGM
+        #return 'Fq({:096x})'.format(int(self))
 
     def __repr__(self):
         return "Fq(" + hex(int(self)) + ")"
