@@ -155,7 +155,7 @@ class JacobianPoint:
     def __str__(self):
         return ("JacobianPoint(x=" + self.x.__str__() +
                 ", y=" + self.y.__str__() +
-                "z=" + self.z.__str__() +
+                ", z=" + self.z.__str__() +
                 ", i=" + str(self.infinity) + ")\n")
 
     def __eq__(self, other):
@@ -334,18 +334,28 @@ def scalar_mult(c, p1, ec=default_ec, FE=Fq):
     return result
 
 
+# def __mul__(self, c):
+#     if not isinstance(c, int):
+#         raise ValueError("Error, must be int or Fq")
+#     return scalar_mult_jacobian(c, self, self.ec)
+
 def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq):
     """
     Double and add:
     https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
     """
+    # p1 is the Projective point and c is the int / scalar to multiply by
+
     if p1.infinity or c % ec.q == 0:
         return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                              FE.zero(ec.q), True, ec)
     if isinstance(c, FE):
         c = int(c)
+
     result = JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                            FE.zero(ec.q), True, ec)
+    print("NGM result(initial):", result)
+
     addend = p1
     while c > 0:
         if c & 1:
@@ -409,7 +419,7 @@ def twist(point, ec=default_ec_twist, debug=False):
 
 def psi(P, ec=default_ec, debug=False):
     ut = untwist(P, ec, debug)
-    print("NGM(psi) ut:", ut)
+    #print("NGM(psi) ut:", ut)
 
     t = AffinePoint(ut.x.qi_power(1), ut.y.qi_power(1), False, ec)
     #print("NGM(psi) t:", t)
@@ -524,9 +534,10 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     #print("NGM(hash) p2:", p2)
 
     inner_psi = psi(p2, debug=True)
-    print("NGM(hash) inner_psi:", inner_psi)
+    #print("NGM(hash) inner_psi:", inner_psi)
 
     psi2P = psi(psi(2*P, ec), ec)
+    #print("NGM(hash) outer_psi:", psi2P)
 
     t0 = x*P
     #print("NGM(hash) t0:", t0)
@@ -537,15 +548,24 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     t2 = (t1 + t0) - P
     #print("NGM(hash) t2:", t2)
 
+    xp = x+1
+    #print("NGM(hash) xp:", xp)
+
     t3 = psi((x+1) * P, ec)
     #print("NGM(hash) t3:", t3)
 
-    return t2 - t3 + psi2P
+    rv = t2 - t3 + psi2P
+    print("NGM(hash) rv:", rv)
+    return rv
+    #return t2 - t3 + psi2P
 
 
 def hash_to_point_Fq2(m, ec=default_ec_twist):
     h = hash256(m)
-    return hash_to_point_prehashed_Fq2(h, ec)
+    rv = hash_to_point_prehashed_Fq2(h, ec)
+    print("NGM(hash_to_point_Fq2) rv:", rv)
+    return rv
+    #return hash_to_point_prehashed_Fq2(h, ec)
 
 
 """
