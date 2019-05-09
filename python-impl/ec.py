@@ -382,6 +382,10 @@ def untwist(point, ec=default_ec, debug=False):
     if debug == True : print("NGM(untwist) point.x:", point.x)
     if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
 
+    #printf("ANGM(untwist) point.x.c0: %x" % point.x[0])
+    #print("ANGM(untwist) point.x.c1: %096x", point.x[1][0])
+    #print("ANGM(untwist) point.x:", point.x.serialize().hex())
+
     if debug == True : print("NGM(untwist) point.y:", point.y)
     if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
 
@@ -532,6 +536,8 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     print("NGM(hash) t2:", t2)
 
     t3 = psi((x+1) * P, ec)
+    print("NGM(hash) t3:", t3)
+
     return t2 - t3 + psi2P
 
 
