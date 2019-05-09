@@ -382,10 +382,6 @@ def untwist(point, ec=default_ec, debug=False):
     if debug == True : print("NGM(untwist) point.x:", point.x)
     if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
 
-    #printf("ANGM(untwist) point.x.c0: %x" % point.x[0])
-    #print("ANGM(untwist) point.x.c1: %096x", point.x[1][0])
-    #print("ANGM(untwist) point.x:", point.x.serialize().hex())
-
     if debug == True : print("NGM(untwist) point.y:", point.y)
     if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
 
@@ -413,8 +409,14 @@ def twist(point, ec=default_ec_twist, debug=False):
 
 def psi(P, ec=default_ec, debug=False):
     ut = untwist(P, ec, debug)
+    print("NGM(psi) ut:", ut)
+
     t = AffinePoint(ut.x.qi_power(1), ut.y.qi_power(1), False, ec)
+    print("NGM(psi) t:", t)
+
     t2 = twist(t, ec, debug)
+    print("NGM(psi) t2:", t2)
+
     return AffinePoint(t2.x[0][0], t2.y[0][0], False, ec)
 
 
