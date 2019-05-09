@@ -154,6 +154,10 @@ class PrivateKey:
 
         r = r.to_jacobian()
         aggregation_info = AggregationInfo.from_msg(self.get_public_key(), m)
+
+        # ngm set debugging log
+        r.debug = True
+
         g2 = self.value * r
         print("NGM (sign) g2 = %s" % (g2))
 

@@ -4,25 +4,23 @@ cachedir: .pytest_cache
 rootdir: /Users/nmarley/projects/bls/chia/bls-signatures
 collecting ... collected 1 item
 
-tests.py::test_vectors NGM(psi) 
+tests.py::test_vectors NGM(hash) rv: AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
 
-ut: AffinePoint(x=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xaa03b..ff59f), Fq(0x45dcb..fbebb))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)))), y=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xacf6a..e4096), Fq(0x19532..12e3d)), Fq2(Fq(0x0), Fq(0x0)))), i=False)
+NGM(hash_to_point_Fq2) rv: AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
 
+NGM (sign) self.value = 0x22fb42c08c12de3a6af053880199806532e79515f94e83461612101f9412f9e
+NGM result(initial): JacobianPoint(x=Fq(0x1), y=Fq(0x1), z=Fq(0x0), i=True)
 
-NGM(hash) inner_psi: AffinePoint(x=Fq2(Fq(0x14436..9c31d), Fq(0x7fe45..b2744)), y=Fq2(Fq(0xfeafd..c5c4e), Fq(0xeb470..08fc6)), i=False)
+NGM addend: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
 
-NGM(psi) ut: AffinePoint(x=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xaa03b..ff59f), Fq(0x45dcb..fbebb))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)))), y=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xacf6a..e4096), Fq(0x19532..12e3d)), Fq2(Fq(0x0), Fq(0x0)))), i=False)
+NGM c: 988911010713160165787315576590949929128365007408164984854024025064423370654
+NGM (sign) g2 = JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
 
-NGM(psi) ut: AffinePoint(x=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x12050..29fdb), Fq(0x6ddf5..88769))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)))), y=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xf4fb6..6760a), Fq(0x1965c..9c467)), Fq2(Fq(0x0), Fq(0x0)))), i=False)
+NGM result(initial): JacobianPoint(x=Fq(0x1), y=Fq(0x1), z=Fq(0x0), i=True)
 
-NGM(psi) ut: AffinePoint(x=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0xfe290..26614), Fq(0x586ee..06e82))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)))), y=Fq12(Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x3e261..0ed2e), Fq(0x10de7..de2b4)), Fq2(Fq(0x0), Fq(0x0)))), i=False)
+NGM addend: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
 
-NGM (sign) r = AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
-
-NGM (sign) r = JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110))z=Fq2(Fq(0x1), Fq(0x0)), i=False)
-
-NGM (sign) g2 = JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f))z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
-
+NGM c: 988911010713160165787315576590949929128365007408164984854024025064423370654
 PASSED
 
-=========================== 1 passed in 0.61 seconds ===========================
+=========================== 1 passed in 0.62 seconds ===========================

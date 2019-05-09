@@ -124,6 +124,9 @@ class JacobianPoint:
     coordinates. Uses Jacobian coordinates so that point addition
     does not require slow inversion.
     """
+
+    debug = False
+
     def __init__(self, x, y, z, infinity, ec=default_ec):
         if (not isinstance(x, Fq) and not isinstance(x, FieldExtBase) or
            (not isinstance(y, Fq) and not isinstance(y, FieldExtBase)) or
@@ -169,7 +172,7 @@ class JacobianPoint:
     def __mul__(self, c):
         if not isinstance(c, int):
             raise ValueError("Error, must be int or Fq")
-        return scalar_mult_jacobian(c, self, self.ec)
+        return scalar_mult_jacobian(c, self, self.ec, debug=self.debug)
 
     def __rmul__(self, c):
         return self.__mul__(c)
@@ -339,12 +342,12 @@ def scalar_mult(c, p1, ec=default_ec, FE=Fq):
 #         raise ValueError("Error, must be int or Fq")
 #     return scalar_mult_jacobian(c, self, self.ec)
 
-def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq):
+def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
     """
     Double and add:
     https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
     """
-    # p1 is the Projective point and c is the int / scalar to multiply by
+    # p1 is the Jacobian point and c is the int / scalar to multiply by
 
     if p1.infinity or c % ec.q == 0:
         return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
@@ -354,9 +357,13 @@ def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq):
 
     result = JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                            FE.zero(ec.q), True, ec)
-    print("NGM result(initial):", result)
+
+    if debug == True : print("NGM result(initial):", result)
 
     addend = p1
+    if debug == True : print("NGM addend:", addend)
+    if debug == True : print("NGM c:", c)
+
     while c > 0:
         if c & 1:
             result += addend

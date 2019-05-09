@@ -3,7 +3,7 @@ from aggregation_info import AggregationInfo
 from bls import BLS
 from ec import (default_ec, default_ec_twist, generator_Fq, generator_Fq2,
                 hash_to_point_Fq, hash_to_point_Fq2, sw_encode, twist, untwist,
-                y_for_x)
+                y_for_x, AffinePoint, JacobianPoint)
 from fields import Fq, Fq2, Fq6, Fq12
 from itertools import combinations
 from keys import PrivateKey, PublicKey, ExtendedPrivateKey
@@ -18,46 +18,23 @@ from bls12381 import q
 setrecursionlimit(10**6)
 
 
-#print("Fq6.zero = ", Fq6.zero(q))
-#print("Fq2.zero = ", Fq2.zero(q))
-#print("Fq.zero = ", Fq.zero(q))
+x_c0 = Fq(q, 0x09e35c2bcad146e49aa19e4df6699d08f9ccc12d1c7625788f2ada0bad3e5741dc736e2935fe3ebcb0fef6db1166786f)
+x_c1 = Fq(q, 0x1245709e2a671d31cbdd537bb3cdcbde39e66511dd390a4a28a0ee0beea98782695d119e2d7ed66ef3f15e6c2a223bf9)
+x_val = Fq2(q, x_c0, x_c1)
+print("x_val = ", x_val)
 
-#print("Fq6.one = ", Fq6.one(q))
-#print("Fq2.one = ", Fq2.one(q))
-#print("Fq.one = ", Fq.one(q))
-
-Fq12OneRoot = Fq6(q, Fq2.zero(q), Fq2.one(q), Fq2.zero(q))
-# FQ12OneRoot := bls.NewFQ6(bls.FQ2Zero, bls.FQ2One, bls.FQ2Zero)
-nwsq = ~Fq12(q, Fq12OneRoot, Fq6.zero(q))
-print("nwsq = ", nwsq)
-
-
-#x_c0 = Fq(q, 0x06427044c2270e673490af1756c840361b4090bca24ae94a2f6ad442a5470e94dc6dd392834cf28f3274e85dc2d036e4)
-#x_c1 = Fq(q, 0x0efe0745224dd9cc23e7d7d63ba7b86ea8deee05b113e02c607afc75f740cb4d0c01d2d361e3fd028b9c24d816afb45a)
-#x_val = Fq2(q, x_c0, x_c1)
-# print("x_val = ", x_val)
-
-
-
-y_c0 = Fq(q, 0x0b7d5c8331ab2a86a94a97acdd248d828d2f7fefa3429a0637076418882154099f40023d81b1f43f6ae860901ebcbd04)
-y_c1 = Fq(q, 0x0a21795e4ad60a5630d919d16421cdcf494ef30f91ebd2c07755ab5493444366e831c16c26bd010d6b87ea6fa59fc428)
+y_c0 = Fq(q, 0x1167ad422b392c865d7cbae6adc4f4827a090a6de6c3a9e28f93786e3fc7f516d7dcf8abdbe8df476dda27ba7adb2aad)
+y_c1 = Fq(q, 0x0029180da059941e8194ce794161f2b77266d955d61f591dbb177591b6e6d6792454935b388fb769ac91d739491f7110)
 y_val = Fq2(q, y_c0, y_c1)
 print("y_val = ", y_val)
 
-nwcu = ~Fq12(q, Fq6.zero(q), Fq12OneRoot)
-#print("nwcu = ", nwcu)
-#nwcu[1][1]
-# Fq2(Fq(0xd0088..fd556), Fq(0xd0088..fd555))
+sk = 0x22fb42c08c12de3a6af053880199806532e79515f94e83461612101f9412f9e
 
 
-#n = x_val * nwsq
-#print("n = ", n)
+g2p = AffinePoint(x_val, y_val, False, default_ec)
+print("g2p = ", g2p)
 
-#new_x = x_val * nwsq[0][2]
-#print("new_x = ", new_x)
+g2pj = g2p.to_jacobian()
+g2pj.debug = True
 
-new_y = y_val * nwcu[1][1]
-print("new_y = ", new_y)
-
-# xVal := bls.NewFQ2(bls.NewFQ(c0), bls.NewFQ(c1))
-# fmt.Println("NGM(Untwist) xVal:", xVal)
+res = g2pj * sk
