@@ -372,23 +372,23 @@ def untwist(point, ec=default_ec, debug=False):
     """
     f = Fq12.one(ec.q)
 
-    if debug == True : print("NGM(untwist) point:", point)
+    #if debug == True : print("NGM(untwist) point:", point)
 
     wsq = Fq12(ec.q, f.root, Fq6.zero(ec.q))
-    if debug == True : print("NGM(untwist) wsq:", wsq)
+    #if debug == True : print("NGM(untwist) wsq:", wsq)
     wcu = Fq12(ec.q, Fq6.zero(ec.q), f.root)
-    if debug == True : print("NGM(untwist) wcu:", wcu)
+    #if debug == True : print("NGM(untwist) wcu:", wcu)
 
-    if debug == True : print("NGM(untwist) point.x:", point.x)
-    if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
+    #if debug == True : print("NGM(untwist) point.x:", point.x)
+    #if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
 
-    if debug == True : print("NGM(untwist) point.y:", point.y)
-    if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
+    #if debug == True : print("NGM(untwist) point.y:", point.y)
+    #if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
 
     new_x = point.x / wsq
-    if debug == True : print("NGM(untwist) new_x:", new_x)
+    #if debug == True : print("NGM(untwist) new_x:", new_x)
     new_y = point.y / wcu
-    if debug == True : print("NGM(untwist) new_y:", new_y)
+    #if debug == True : print("NGM(untwist) new_y:", new_y)
 
     return AffinePoint(point.x / wsq, point.y / wcu, False, ec)
 
@@ -412,10 +412,10 @@ def psi(P, ec=default_ec, debug=False):
     print("NGM(psi) ut:", ut)
 
     t = AffinePoint(ut.x.qi_power(1), ut.y.qi_power(1), False, ec)
-    print("NGM(psi) t:", t)
+    #print("NGM(psi) t:", t)
 
     t2 = twist(t, ec, debug)
-    print("NGM(psi) t2:", t2)
+    #print("NGM(psi) t2:", t2)
 
     return AffinePoint(t2.x[0][0], t2.y[0][0], False, ec)
 
@@ -518,10 +518,10 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     # efficient way. See page 11 of "Efficient hash maps
     # to G2 on BLS curves" by Budrioni and Pintore.
     x = -ec.x
-    print("NGM(hash) x:", x)
+    #print("NGM(hash) x:", x)
 
     p2 = 2*P
-    print("NGM(hash) p2:", p2)
+    #print("NGM(hash) p2:", p2)
 
     inner_psi = psi(p2, debug=True)
     print("NGM(hash) inner_psi:", inner_psi)
@@ -529,16 +529,16 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     psi2P = psi(psi(2*P, ec), ec)
 
     t0 = x*P
-    print("NGM(hash) t0:", t0)
+    #print("NGM(hash) t0:", t0)
 
     t1 = x*t0
-    print("NGM(hash) t1:", t1)
+    #print("NGM(hash) t1:", t1)
 
     t2 = (t1 + t0) - P
-    print("NGM(hash) t2:", t2)
+    #print("NGM(hash) t2:", t2)
 
     t3 = psi((x+1) * P, ec)
-    print("NGM(hash) t3:", t3)
+    #print("NGM(hash) t3:", t3)
 
     return t2 - t3 + psi2P
 
