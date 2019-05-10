@@ -54,13 +54,16 @@ g2pj.debug = True
 # yy = y_val * y_val
 # print("yy:", yy)
 
-x4 = 4 * x_val
-print("x4:", x4)
+#x4 = 4 * x_val
+#print("x4:", x4)
 
-dbl = double_point_jacobian(g2pj)
-print("dbl = ", dbl)
+#dbl = double_point_jacobian(g2pj)
+#print("dbl = ", dbl)
 
-square = add_points_jacobian(g2pj, g2pj)
-print("square = ", square)
+#square = add_points_jacobian(g2pj, g2pj)
+#print("square = ", square)
 
-# res = g2pj * sk
+res = g2pj * sk
+print("res = ", res)
+
+# res: G2Projective(x=Fq2(Fq(0x7caed..6f42f) + Fq(0x19747..6f4d9) * u), y=Fq2(Fq(0x7533c..08817) + Fq(0x144ea..fbe12) * u), z=Fq2(Fq(0xdc8ed..0db08) + Fq(0x188a8..123c8) * u))

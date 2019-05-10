@@ -259,16 +259,13 @@ def double_point_jacobian(p1, ec=default_ec, FE=Fq):
 
     # S = 4*X*Y^2
     S = 4 * X * Y * Y
-
     Z_sq = Z * Z
     Z_4th = Z_sq * Z_sq
     Y_sq = Y * Y
     Y_4th = Y_sq * Y_sq
-
     # M = 3*X^2 + a*Z^4
     M = 3 * X * X
     M += ec.a * Z_4th
-
     # X' = M^2 - 2*S
     X_p = M * M - 2 * S
     # Y' = M*(S - X') - 8*Y^4
@@ -353,19 +350,23 @@ def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
     result = JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                            FE.zero(ec.q), True, ec)
 
-    if debug == True : print("NGM result(initial):", result)
+    #if debug == True : print("NGMpy result(initial):", result)
 
     addend = p1
-    if debug == True : print("NGM addend:", addend)
-    if debug == True : print("NGM c:", c)
+    if debug == True : print("NGMpy addend:", addend)
+    if debug == True : print("NGMpy c:", c)
 
     while c > 0:
         if c & 1:
+            if debug == True : print("NGMpy result BEFORE add:", result)
+            if debug == True : print("NGMpy addend BEFORE add:", addend)
             result += addend
-            if debug == True : print("NGM result after add:", result)
+            if debug == True : print("NGMpy result after add:", result)
         # double point
         addend += addend
+        if debug == True : print("NGMpy addend after double:", addend)
         c = c >> 1
+        if debug == True : print("NGMpy new c after Rsh:", c)
     return result
 
 
@@ -377,7 +378,7 @@ def generator_Fq2(ec=default_ec_twist):
     return AffinePoint(ec.g2x, ec.g2y, False, ec)
 
 
-def untwist(point, ec=default_ec, debug=False):
+def untwist(point, ec=default_ec):
     """
     Given a point on G2 on the twisted curve, this converts it's
     coordinates back from Fq2 to Fq12. See Craig Costello book, look
@@ -385,28 +386,13 @@ def untwist(point, ec=default_ec, debug=False):
     """
     f = Fq12.one(ec.q)
 
-    #if debug == True : print("NGM(untwist) point:", point)
-
     wsq = Fq12(ec.q, f.root, Fq6.zero(ec.q))
-    #if debug == True : print("NGM(untwist) wsq:", wsq)
     wcu = Fq12(ec.q, Fq6.zero(ec.q), f.root)
-    #if debug == True : print("NGM(untwist) wcu:", wcu)
-
-    #if debug == True : print("NGM(untwist) point.x:", point.x)
-    #if debug == True : print("NGM(untwist) ~wsq:", ~wsq)
-
-    #if debug == True : print("NGM(untwist) point.y:", point.y)
-    #if debug == True : print("NGM(untwist) ~wcu:", ~wcu)
-
-    new_x = point.x / wsq
-    #if debug == True : print("NGM(untwist) new_x:", new_x)
-    new_y = point.y / wcu
-    #if debug == True : print("NGM(untwist) new_y:", new_y)
 
     return AffinePoint(point.x / wsq, point.y / wcu, False, ec)
 
 
-def twist(point, ec=default_ec_twist, debug=False):
+def twist(point, ec=default_ec_twist):
     """
     Given an untwisted point, this converts it's
     coordinates to a point on the twisted curve. See Craig Costello
@@ -420,22 +406,16 @@ def twist(point, ec=default_ec_twist, debug=False):
     return AffinePoint(new_x, new_y, False, ec)
 
 
-def psi(P, ec=default_ec, debug=False):
-    ut = untwist(P, ec, debug)
-    #print("NGM(psi) ut:", ut)
-
+def psi(P, ec=default_ec):
+    ut = untwist(P, ec)
     t = AffinePoint(ut.x.qi_power(1), ut.y.qi_power(1), False, ec)
-    #print("NGM(psi) t:", t)
-
-    t2 = twist(t, ec, debug)
-    #print("NGM(psi) t2:", t2)
-
+    t2 = twist(t, ec)
     return AffinePoint(t2.x[0][0], t2.y[0][0], False, ec)
 
 
 # Rust pairings hashing https://github.com/zkcrypto/pairing
 # https://www.di.ens.fr/~fouque/pub/latincrypt12.pdf
-def sw_encode(t, ec=default_ec, FE=Fq, debug=False):
+def sw_encode(t, ec=default_ec, FE=Fq):
     if t == 0:  # Maps t=0 to the point at infinity
         return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                              FE.zero(ec.q), True, ec)
@@ -523,44 +503,20 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     t1_1 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_1_c1"), "big"))
     t0 = Fq2(ec.q, t0_0, t0_1)
     t1 = Fq2(ec.q, t1_0, t1_1)
-    part1 = sw_encode(t0, ec, Fq2, True)
-    part2 = sw_encode(t1, ec, Fq2)
     P = sw_encode(t0, ec, Fq2) + sw_encode(t1, ec, Fq2)
 
     # This is the cofactor multiplication, done in a more
     # efficient way. See page 11 of "Efficient hash maps
     # to G2 on BLS curves" by Budrioni and Pintore.
     x = -ec.x
-    #print("NGM(hash) x:", x)
-
-    p2 = 2*P
-    #print("NGM(hash) p2:", p2)
-
-    inner_psi = psi(p2, debug=True)
-    #print("NGM(hash) inner_psi:", inner_psi)
 
     psi2P = psi(psi(2*P, ec), ec)
-    #print("NGM(hash) outer_psi:", psi2P)
 
     t0 = x*P
-    #print("NGM(hash) t0:", t0)
-
     t1 = x*t0
-    #print("NGM(hash) t1:", t1)
-
     t2 = (t1 + t0) - P
-    #print("NGM(hash) t2:", t2)
-
-    xp = x+1
-    #print("NGM(hash) xp:", xp)
-
     t3 = psi((x+1) * P, ec)
-    #print("NGM(hash) t3:", t3)
-
-    rv = t2 - t3 + psi2P
-    print("NGM(hash) rv:", rv)
-    return rv
-    #return t2 - t3 + psi2P
+    return t2 - t3 + psi2P
 
 
 def hash_to_point_Fq2(m, ec=default_ec_twist):
