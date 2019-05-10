@@ -3,7 +3,8 @@ from aggregation_info import AggregationInfo
 from bls import BLS
 from ec import (default_ec, default_ec_twist, generator_Fq, generator_Fq2,
                 hash_to_point_Fq, hash_to_point_Fq2, sw_encode, twist, untwist,
-                y_for_x, AffinePoint, JacobianPoint)
+                y_for_x, AffinePoint, JacobianPoint, double_point_jacobian,
+                add_points_jacobian,)
 from fields import Fq, Fq2, Fq6, Fq12
 from itertools import combinations
 from keys import PrivateKey, PublicKey, ExtendedPrivateKey
@@ -37,4 +38,29 @@ print("g2p = ", g2p)
 g2pj = g2p.to_jacobian()
 g2pj.debug = True
 
-res = g2pj * sk
+# =========================================================================
+
+# testing FQ2 point arith
+
+# xx = x_val * x_val
+# print("xx:", xx)
+#
+# xy = x_val * y_val
+# print("xy:", xy)
+#
+# yx = y_val * x_val
+# print("yx:", yx)
+#
+# yy = y_val * y_val
+# print("yy:", yy)
+
+x4 = 4 * x_val
+print("x4:", x4)
+
+dbl = double_point_jacobian(g2pj)
+print("dbl = ", dbl)
+
+square = add_points_jacobian(g2pj, g2pj)
+print("square = ", square)
+
+# res = g2pj * sk

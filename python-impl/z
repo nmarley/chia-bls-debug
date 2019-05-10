@@ -1,26 +1,12 @@
-============================= test session starts ==============================
-platform darwin -- Python 3.7.3, pytest-4.4.1, py-1.8.0, pluggy-0.9.0 -- /Users/nmarley/projects/bls/chia/bls-signatures/python-impl/venv/bin/python3.7
-cachedir: .pytest_cache
-rootdir: /Users/nmarley/projects/bls/chia/bls-signatures
-collecting ... collected 1 item
+#./venv/bin/py.test -svv tests.py > z
+./venv/bin/python x.py
+x_val =  Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9))
+y_val =  Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110))
+g2p =  AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
 
-tests.py::test_vectors NGM(hash) rv: AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
+x4: Fq2(Fq(0xd8c5e..a3711), Fq(0x15139..99a8e))
 
-NGM(hash_to_point_Fq2) rv: AffinePoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), i=False)
+dbl =  JacobianPoint(x=Fq2(Fq(0x7094a..94424), Fq(0x22f82..71768)), y=Fq2(Fq(0xb5a49..bbb74), Fq(0x12b0f..b7fab)), z=Fq2(Fq(0x8ce48..6aaaf), Fq(0x52301..ee220)), i=False)
 
-NGM (sign) self.value = 0x22fb42c08c12de3a6af053880199806532e79515f94e83461612101f9412f9e
-NGM result(initial): JacobianPoint(x=Fq(0x1), y=Fq(0x1), z=Fq(0x0), i=True)
+square =  JacobianPoint(x=Fq2(Fq(0x7094a..94424), Fq(0x22f82..71768)), y=Fq2(Fq(0xb5a49..bbb74), Fq(0x12b0f..b7fab)), z=Fq2(Fq(0x8ce48..6aaaf), Fq(0x52301..ee220)), i=False)
 
-NGM addend: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
-
-NGM c: 988911010713160165787315576590949929128365007408164984854024025064423370654
-NGM (sign) g2 = JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
-
-NGM result(initial): JacobianPoint(x=Fq(0x1), y=Fq(0x1), z=Fq(0x0), i=True)
-
-NGM addend: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
-
-NGM c: 988911010713160165787315576590949929128365007408164984854024025064423370654
-PASSED
-
-=========================== 1 passed in 0.62 seconds ===========================

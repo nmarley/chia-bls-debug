@@ -337,11 +337,6 @@ def scalar_mult(c, p1, ec=default_ec, FE=Fq):
     return result
 
 
-# def __mul__(self, c):
-#     if not isinstance(c, int):
-#         raise ValueError("Error, must be int or Fq")
-#     return scalar_mult_jacobian(c, self, self.ec)
-
 def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
     """
     Double and add:
@@ -367,6 +362,7 @@ def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
     while c > 0:
         if c & 1:
             result += addend
+            if debug == True : print("NGM result after add:", result)
         # double point
         addend += addend
         c = c >> 1
