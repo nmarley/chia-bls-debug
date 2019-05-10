@@ -1,31 +1,16 @@
-#./venv/bin/py.test -svv tests.py > z
-./venv/bin/python x.py
-NGMpy resJacobian: JacobianPoint(x=Fq2(Fq(0x7094a..94424), Fq(0x22f82..71768)), y=Fq2(Fq(0xb5a49..bbb74), Fq(0x12b0f..b7fab)), z=Fq2(Fq(0x8ce48..6aaaf), Fq(0x52301..ee220)), i=False)
-
-NGMpy addEndJacobian: JacobianPoint(x=Fq2(Fq(0x356a2..395ac), Fq(0x1527e..19861)), y=Fq2(Fq(0x40e14..3826f), Fq(0x42611..841e5)), z=Fq2(Fq(0x16965..22196), Fq(0x9b32a..adc15)), i=False)
-
-NGMpy U1: Fq2(Fq(0xfd563..b19c0), Fq(0xaf52b..5ef5c))
-NGMpy U2: Fq2(Fq(0xdf8aa..8c44e), Fq(0xc92a2..9ec83))
-NGMpy S1: Fq2(Fq(0xb2215..c15f1), Fq(0x67d00..c52c7))
-NGMpy S2: Fq2(Fq(0x5be71..86193), Fq(0x18383..f4211))
-NGMpy H: Fq2(Fq(0x18245..d5539), Fq(0x19d76..3fd27))
-NGMpy R: Fq2(Fq(0x149d6..bf64d), Fq(0x11bb3..2ef4a))
-
-NGMpy H_sq: Fq2(Fq(0x18706..24481), Fq(0x18fa8..08ec2))
-GMgo h_sq: Fq2(Fq(0x18706..24481) + Fq(0x18fa8..08ec2) * u)
-NGMpy H_cu: Fq2(Fq(0x192ba..2166f), Fq(0x66664..e4b3d))
- GMgo h_cu: Fq2(Fq(0x192ba..2166f) + Fq(0x66664..e4b3d) * u)
+./venv/bin/py.test -svv tests.py
+============================= test session starts ==============================
+platform darwin -- Python 3.7.3, pytest-4.4.1, py-1.8.0, pluggy-0.9.0 -- /Users/nmarley/projects/bls/chia/bls-signatures/python-impl/venv/bin/python3.7
+cachedir: .pytest_cache
+rootdir: /Users/nmarley/projects/bls/chia/bls-signatures
+collecting ... collected 1 item
 
 
-NGMpy X3: Fq2(Fq(0xca287..46a12), Fq(0x5f819..ef792))
-GMgo x3: Fq2(Fq(0xca287..46a12) + Fq(0x5f819..ef792) * u)
+NGMpy (sign) r = JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
 
-NGMpy Y3: Fq2(Fq(0xd33df..05fda), Fq(0x19246..32aaf))
-NGMgo y3: Fq2(Fq(0xd33df..05fda) + Fq(0x19246..32aaf) * u)
+NGMpy (sign) g2 = JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
 
-NGMpy Z3: Fq2(Fq(0x4d665..90093), Fq(0xbe96a..7e5d4))
- GMgo z3: Fq2(Fq(0x4d665..90093) + Fq(0xbe96a..7e5d4) * u)
+PASSED
 
-
-NGMpy finalres: JacobianPoint(x=Fq2(Fq(0xca287..46a12), Fq(0x5f819..ef792)), y=Fq2(Fq(0xd33df..05fda), Fq(0x19246..32aaf)), z=Fq2(Fq(0x4d665..90093), Fq(0xbe96a..7e5d4)), i=False)
-NGMgo finalres: G2Projective(x=Fq2(Fq(0xca287..46a12) + Fq(0x5f819..ef792) * u), y=Fq2(Fq(0xd33df..05fda) + Fq(0x19246..32aaf) * u), z=Fq2(Fq(0x4d665..90093) + Fq(0xbe96a..7e5d4) * u))
+=========================== 1 passed in 0.61 seconds ===========================
+#./venv/bin/python x.py

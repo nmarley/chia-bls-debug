@@ -276,7 +276,6 @@ def double_point_jacobian(p1, ec=default_ec, FE=Fq):
 
 
 
-# return add_points_jacobian(self, other, self.ec, self.FE)
 def add_points_jacobian(p1, p2, ec=default_ec, FE=Fq):
     """
     Jacobian elliptic curve point addition
@@ -290,51 +289,51 @@ def add_points_jacobian(p1, p2, ec=default_ec, FE=Fq):
     # NGMNGMNGM
     # U1 = X1*Z2^2
     U1 = p1.x * pow(p2.z, 2)
-    print("NGMpy U1:", U1)
+    # print("NGMpy U1:", U1)
 
     # U2 = X2*Z1^2
     U2 = p2.x * pow(p1.z, 2)
-    print("NGMpy U2:", U2)
+    # print("NGMpy U2:", U2)
 
     # S1 = Y1*Z2^3
     S1 = p1.y * pow(p2.z, 3)
-    print("NGMpy S1:", S1)
+    # print("NGMpy S1:", S1)
 
     # S2 = Y2*Z1^3
     S2 = p2.y * pow(p1.z, 3)
-    print("NGMpy S2:", S2)
+    # print("NGMpy S2:", S2)
 
     if U1 == U2:
-        print("NGMpy U1 == U2:")
+        # print("NGMpy U1 == U2:")
         if S1 != S2:
-            print("NGMpy S1 != S2:")
+            # print("NGMpy S1 != S2:")
             return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                                  FE.zero(ec.q), True, ec)
         else:
-            print("NGMpy Double G (GG)")
+            # print("NGMpy Double G (GG)")
             return double_point_jacobian(p1, ec, FE)
 
     # H = U2 - U1
     H = U2 - U1
-    print("NGMpy H:", H)
+    # print("NGMpy H:", H)
     # R = S2 - S1
     R = S2 - S1
-    print("NGMpy R:", R)
+    # print("NGMpy R:", R)
 
     H_sq = H * H
-    print("NGMpy H_sq:", H_sq)
+    # print("NGMpy H_sq:", H_sq)
     H_cu = H * H_sq
-    print("NGMpy H_cu:", H_cu)
+    # print("NGMpy H_cu:", H_cu)
 
     # X3 = R^2 - H^3 - 2*U1*H^2
     X3 = R * R - H_cu - 2 * U1 * H_sq
-    print("NGMpy X3:", X3)
+    # print("NGMpy X3:", X3)
     # Y3 = R*(U1*H^2 - X3) - S1*H^3
     Y3 = R * (U1 * H_sq - X3) - S1 * H_cu
-    print("NGMpy Y3:", Y3)
+    # print("NGMpy Y3:", Y3)
     # Z3 = H*Z1*Z2
     Z3 = H * p1.z * p2.z
-    print("NGMpy Z3:", Z3)
+    # print("NGMpy Z3:", Z3)
     return JacobianPoint(X3, Y3, Z3, False, ec)
 
 
@@ -377,20 +376,20 @@ def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
     #if debug == True : print("NGMpy result(initial):", result)
 
     addend = p1
-    if debug == True : print("NGMpy addend:", addend)
-    if debug == True : print("NGMpy c:", c)
+    # if debug == True : print("NGMpy addend:", addend)
+    # if debug == True : print("NGMpy c:", c)
 
     while c > 0:
         if c & 1:
-            if debug == True : print("NGMpy result BEFORE add:", result)
-            if debug == True : print("NGMpy addend BEFORE add:", addend)
+            # if debug == True : print("NGMpy result BEFORE add:", result)
+            # if debug == True : print("NGMpy addend BEFORE add:", addend)
             result += addend
-            if debug == True : print("NGMpy result after add:", result)
+            # if debug == True : print("NGMpy result after add:", result)
         # double point
         addend += addend
-        if debug == True : print("NGMpy addend after double:", addend)
+        # if debug == True : print("NGMpy addend after double:", addend)
         c = c >> 1
-        if debug == True : print("NGMpy new c after Rsh:", c)
+        # if debug == True : print("NGMpy new c after Rsh:", c)
     return result
 
 
