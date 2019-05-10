@@ -3,7 +3,5 @@
 NGMpy sk: 988911010713160165787315576590949929128365007408164984854024025064423370654
 NGMpy rp: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
 
-NGMgo rp: G2Projective(x=Fq2(Fq(0x9e35c..6786f) + Fq(0x12457..23bf9) * u), y=Fq2(Fq(0x1167a..b2aad) + Fq(0x29180..f7110) * u), z=Fq2(Fq(0x1) + Fq(0x0) * u))
-
 NGMpy res: JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
-
+NGMgo fu: G2Projective(x=Fq2(Fq(0x20e42..fbde5) + Fq(0xfc757..201bd) * u), y=Fq2(Fq(0x14a63..6f337) + Fq(0x1a5a1..8449f) * u), z=Fq2(Fq(0x6d46b..fb497) + Fq(0x8431b..e7419) * u))
