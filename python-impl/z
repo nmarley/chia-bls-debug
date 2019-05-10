@@ -1,16 +1,9 @@
-./venv/bin/py.test -svv tests.py
-============================= test session starts ==============================
-platform darwin -- Python 3.7.3, pytest-4.4.1, py-1.8.0, pluggy-0.9.0 -- /Users/nmarley/projects/bls/chia/bls-signatures/python-impl/venv/bin/python3.7
-cachedir: .pytest_cache
-rootdir: /Users/nmarley/projects/bls/chia/bls-signatures
-collecting ... collected 1 item
+#./venv/bin/py.test -svv tests.py
+./venv/bin/python x.py
+NGMpy sk: 988911010713160165787315576590949929128365007408164984854024025064423370654
+NGMpy rp: JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
 
+NGMgo rp: G2Projective(x=Fq2(Fq(0x9e35c..6786f) + Fq(0x12457..23bf9) * u), y=Fq2(Fq(0x1167a..b2aad) + Fq(0x29180..f7110) * u), z=Fq2(Fq(0x1) + Fq(0x0) * u))
 
-NGMpy (sign) r = JacobianPoint(x=Fq2(Fq(0x9e35c..6786f), Fq(0x12457..23bf9)), y=Fq2(Fq(0x1167a..b2aad), Fq(0x29180..f7110)), z=Fq2(Fq(0x1), Fq(0x0)), i=False)
+NGMpy res: JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
 
-NGMpy (sign) g2 = JacobianPoint(x=Fq2(Fq(0x20e42..fbde5), Fq(0xfc757..201bd)), y=Fq2(Fq(0x14a63..6f337), Fq(0x1a5a1..8449f)), z=Fq2(Fq(0x6d46b..fb497), Fq(0x8431b..e7419)), i=False)
-
-PASSED
-
-=========================== 1 passed in 0.61 seconds ===========================
-#./venv/bin/python x.py
