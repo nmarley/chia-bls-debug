@@ -280,22 +280,28 @@ bool Signature::Verify() const {
     std::map<uint8_t*, std::vector<PublicKey>,
             Util::BytesCompare32> hashToPubKeys;
 
+    std::map<uint8_t*, std::map<PublicKey, size_t> > mapSeen;
     for (size_t i = 0; i < messageHashes.size(); i++) {
         auto pubKeyIter = hashToPubKeys.find(messageHashes[i]);
         if (pubKeyIter != hashToPubKeys.end()) {
+            // Do not push duplicate keys to the hash map
+            if (mapSeen[messageHashes[i]][pubKeys[i]].count != 0) {
+                continue;
+            }
             // Already one identical message, so push to vector
             pubKeyIter->second.push_back(pubKeys[i]);
+            mapSeen[messageHashes[i]][pubKeys[i]] = 1;
         } else {
             // First time seeing this message, so create a vector
             std::vector<PublicKey> newPubKey = {pubKeys[i]};
             hashToPubKeys.insert(make_pair(messageHashes[i], newPubKey));
+            mapSeen[messageHashes[i]][pubKeys[i]] = 1;
         }
     }
 
     // Aggregate pubkeys of identical messages
     std::vector<PublicKey> finalPubKeys;
     std::vector<const uint8_t*> finalMessageHashes;
-    std::vector<const uint8_t*> collidingKeys;
 
     for (const auto &kv : hashToPubKeys) {
         PublicKey prod;
