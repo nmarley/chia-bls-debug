@@ -290,7 +290,12 @@ class Signature:
         distinct verification procedure.
         """
         message_hashes = self.aggregation_info.message_hashes
+        # print("NGMpy verify message_hashes:", message_hashes)
+        # for mh2 in message_hashes:
+        #     print("NGMpy verify mh2 %s:" % mh2.hex())
+
         public_keys = self.aggregation_info.public_keys
+        # print("NGMpy verify public_keys:", public_keys)
         assert(len(message_hashes) == len(public_keys))
 
         hash_to_public_keys = {}
@@ -299,6 +304,8 @@ class Signature:
                 hash_to_public_keys[message_hashes[i]].append(public_keys[i])
             else:
                 hash_to_public_keys[message_hashes[i]] = [public_keys[i]]
+
+        # print("NGMpy verify h2pks:", hash_to_public_keys)
 
         final_message_hashes = []
         final_public_keys = []
@@ -311,16 +318,38 @@ class Signature:
                 try:
                     exponent = self.aggregation_info.tree[(message_hash,
                                                            public_key)]
-                    public_key_sum += (public_key.value * exponent)
+                    print("NGMpy exponent:", exponent)
+                    res = (public_key.value * exponent)
+                    print("NGMpy res:", res)
+                    public_key_sum += res
+                    print("NGMpy public_key_sum:", public_key_sum)
                 except KeyError:
                     return False
             final_message_hashes.append(message_hash)
             final_public_keys.append(public_key_sum.to_affine())
 
+        print("NGMpy final_public_keys:", final_public_keys)
+
+        # print("NGMpy final_message_hashes:", final_message_hashes)
         mapped_hashes = [hash_to_point_prehashed_Fq2(mh)
                          for mh in final_message_hashes]
+        # print("NGMpy mapped_hashes:", mapped_hashes)
+
+        # g1 = Fq(default_ec.n, -1) * generator_Fq()
+        # g1 =
+        # Fq(default_ec.n, -1)
+        # * generator_Fq()
+
+        # print("NGMpy n:", default_ec.n)
+        # print("NGMpy fq:", Fq(default_ec.n, -1))
+
+        # gfq = generator_Fq()
+        # print("NGMpy qfq:", gfq)
 
         g1 = Fq(default_ec.n, -1) * generator_Fq()
+        print("NGMpy g1:", g1)
+
+
         Ps = [g1] + final_public_keys
         Qs = [self.value.to_affine()] + mapped_hashes
         res = ate_pairing_multi(Ps, Qs, default_ec)

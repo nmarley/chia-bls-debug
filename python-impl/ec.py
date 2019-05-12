@@ -124,9 +124,6 @@ class JacobianPoint:
     coordinates. Uses Jacobian coordinates so that point addition
     does not require slow inversion.
     """
-
-    debug = False
-
     def __init__(self, x, y, z, infinity, ec=default_ec):
         if (not isinstance(x, Fq) and not isinstance(x, FieldExtBase) or
            (not isinstance(y, Fq) and not isinstance(y, FieldExtBase)) or
@@ -172,7 +169,7 @@ class JacobianPoint:
     def __mul__(self, c):
         if not isinstance(c, int):
             raise ValueError("Error, must be int or Fq")
-        return scalar_mult_jacobian(c, self, self.ec, debug=self.debug)
+        return scalar_mult_jacobian(c, self, self.ec)
 
     def __rmul__(self, c):
         return self.__mul__(c)
@@ -259,13 +256,16 @@ def double_point_jacobian(p1, ec=default_ec, FE=Fq):
 
     # S = 4*X*Y^2
     S = 4 * X * Y * Y
+
     Z_sq = Z * Z
     Z_4th = Z_sq * Z_sq
     Y_sq = Y * Y
     Y_4th = Y_sq * Y_sq
+
     # M = 3*X^2 + a*Z^4
     M = 3 * X * X
     M += ec.a * Z_4th
+
     # X' = M^2 - 2*S
     X_p = M * M - 2 * S
     # Y' = M*(S - X') - 8*Y^4
@@ -273,7 +273,6 @@ def double_point_jacobian(p1, ec=default_ec, FE=Fq):
     # Z' = 2*Y*Z
     Z_p = 2 * Y * Z
     return JacobianPoint(X_p, Y_p, Z_p, False, ec)
-
 
 
 def add_points_jacobian(p1, p2, ec=default_ec, FE=Fq):
@@ -285,55 +284,33 @@ def add_points_jacobian(p1, p2, ec=default_ec, FE=Fq):
         return p2
     if p2.infinity:
         return p1
-
-    # NGMNGMNGM
     # U1 = X1*Z2^2
     U1 = p1.x * pow(p2.z, 2)
-    # print("NGMpy U1:", U1)
-
     # U2 = X2*Z1^2
     U2 = p2.x * pow(p1.z, 2)
-    # print("NGMpy U2:", U2)
-
     # S1 = Y1*Z2^3
     S1 = p1.y * pow(p2.z, 3)
-    # print("NGMpy S1:", S1)
-
     # S2 = Y2*Z1^3
     S2 = p2.y * pow(p1.z, 3)
-    # print("NGMpy S2:", S2)
-
     if U1 == U2:
-        # print("NGMpy U1 == U2:")
         if S1 != S2:
-            # print("NGMpy S1 != S2:")
             return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                                  FE.zero(ec.q), True, ec)
         else:
-            # print("NGMpy Double G (GG)")
             return double_point_jacobian(p1, ec, FE)
 
     # H = U2 - U1
     H = U2 - U1
-    # print("NGMpy H:", H)
     # R = S2 - S1
     R = S2 - S1
-    # print("NGMpy R:", R)
-
     H_sq = H * H
-    # print("NGMpy H_sq:", H_sq)
     H_cu = H * H_sq
-    # print("NGMpy H_cu:", H_cu)
-
     # X3 = R^2 - H^3 - 2*U1*H^2
     X3 = R * R - H_cu - 2 * U1 * H_sq
-    # print("NGMpy X3:", X3)
     # Y3 = R*(U1*H^2 - X3) - S1*H^3
     Y3 = R * (U1 * H_sq - X3) - S1 * H_cu
-    # print("NGMpy Y3:", Y3)
     # Z3 = H*Z1*Z2
     Z3 = H * p1.z * p2.z
-    # print("NGMpy Z3:", Z3)
     return JacobianPoint(X3, Y3, Z3, False, ec)
 
 
@@ -357,39 +334,25 @@ def scalar_mult(c, p1, ec=default_ec, FE=Fq):
     return result
 
 
-def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq, debug=False):
+def scalar_mult_jacobian(c, p1, ec=default_ec, FE=Fq):
     """
     Double and add:
     https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
     """
-    # p1 is the Jacobian point and c is the int / scalar to multiply by
-
     if p1.infinity or c % ec.q == 0:
         return JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                              FE.zero(ec.q), True, ec)
     if isinstance(c, FE):
         c = int(c)
-
     result = JacobianPoint(FE.one(ec.q), FE.one(ec.q),
                            FE.zero(ec.q), True, ec)
-
-    #if debug == True : print("NGMpy result(initial):", result)
-
     addend = p1
-    # if debug == True : print("NGMpy addend:", addend)
-    # if debug == True : print("NGMpy c:", c)
-
     while c > 0:
         if c & 1:
-            # if debug == True : print("NGMpy result BEFORE add:", result)
-            # if debug == True : print("NGMpy addend BEFORE add:", addend)
             result += addend
-            # if debug == True : print("NGMpy result after add:", result)
         # double point
         addend += addend
-        # if debug == True : print("NGMpy addend after double:", addend)
         c = c >> 1
-        # if debug == True : print("NGMpy new c after Rsh:", c)
     return result
 
 
@@ -408,10 +371,8 @@ def untwist(point, ec=default_ec):
     up twists.
     """
     f = Fq12.one(ec.q)
-
     wsq = Fq12(ec.q, f.root, Fq6.zero(ec.q))
     wcu = Fq12(ec.q, Fq6.zero(ec.q), f.root)
-
     return AffinePoint(point.x / wsq, point.y / wcu, False, ec)
 
 
@@ -524,17 +485,17 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
     t0_1 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_0_c1"), "big"))
     t1_0 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_1_c0"), "big"))
     t1_1 = Fq(ec.q, int.from_bytes(hash512(m + b"G2_1_c1"), "big"))
+
     t0 = Fq2(ec.q, t0_0, t0_1)
     t1 = Fq2(ec.q, t1_0, t1_1)
+
     P = sw_encode(t0, ec, Fq2) + sw_encode(t1, ec, Fq2)
 
     # This is the cofactor multiplication, done in a more
     # efficient way. See page 11 of "Efficient hash maps
     # to G2 on BLS curves" by Budrioni and Pintore.
     x = -ec.x
-
     psi2P = psi(psi(2*P, ec), ec)
-
     t0 = x*P
     t1 = x*t0
     t2 = (t1 + t0) - P
@@ -544,10 +505,7 @@ def hash_to_point_prehashed_Fq2(m, ec=default_ec_twist):
 
 def hash_to_point_Fq2(m, ec=default_ec_twist):
     h = hash256(m)
-    rv = hash_to_point_prehashed_Fq2(h, ec)
-    print("NGM(hash_to_point_Fq2) rv:", rv)
-    return rv
-    #return hash_to_point_prehashed_Fq2(h, ec)
+    return hash_to_point_prehashed_Fq2(h, ec)
 
 
 """

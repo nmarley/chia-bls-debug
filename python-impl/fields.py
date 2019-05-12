@@ -58,9 +58,9 @@ class Fq(int):
     def __str__(self):
         s = hex(int(self))
         s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
-        return "Fq(" + s2 + ")"
+        #return "Fq(" + s2 + ")"
         # NGM
-        #return 'Fq({:096x})'.format(int(self))
+        return 'Fq({:096x})'.format(int(self))
 
     def __repr__(self):
         return "Fq(" + hex(int(self)) + ")"
@@ -80,7 +80,7 @@ class Fq(int):
 
     def qi_power(self, i):
         return self
-
+    
     def __invert__(self):
         """
         Extended euclidian algorithm for inversion.
@@ -165,7 +165,7 @@ class Fq(int):
     @classmethod
     def from_fq(cls, Q, fq):
         return fq
-
+    
 
 class FieldExtBase(tuple):
     """
@@ -239,26 +239,18 @@ class FieldExtBase(tuple):
             return NotImplemented
 
         buf = [cls.basefield.zero(self.Q) for _ in self]
+
         for i, x in enumerate(self):
-            ##print("NGM self = %s" % (self))
-            #print("NGM cls.extension = %s, other.extension = %s" % (cls.extension, other.extension))
-            #print("NGM i = %d, x = %s" % (i, x))
             if cls.extension == other.extension:
                 for j, y in enumerate(other):
                     if x and y:
-                        # NGM
-                        #print("NGM mul kind flds, i+j = %d, embd = %d" % ((i+j), self.embedding))
-                        #print("\tNGM buf (before) = %s", buf)
                         if i+j >= self.embedding:
-                            #print("\tNGM in IF")
-                            buf[(i + j) % self.embedding] += (x * y * self.root)
+                            buf[(i + j) % self.embedding] += (x * y *
+                                                              self.root)
                         else:
-                            #print("\tNGM in ELSE")
                             buf[(i + j) % self.embedding] += x * y
-                        #print("\tNGM buf (after) = %s", buf)
             else:
                 if x:
-                    #print("x eval'd to true, buf[%d] = x * other" % (i, ))
                     buf[i] = x * other
         ret = super().__new__(cls, buf)
         ret.Q = self.Q
