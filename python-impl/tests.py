@@ -22,7 +22,8 @@ def test_vectors():
     sk1 = PrivateKey.from_seed(bytes([1, 2, 3, 4, 5]))
     pk1 = sk1.get_public_key()
     sig1 = sk1.sign(bytes([7, 8, 9]))
-    assert(sig1.verify())
+    # print("NGMpy IN TEST, sig1: ", sig1.serialize().hex())
+    sig1.verify()
 
 #    sk2 = PrivateKey.from_seed(bytes([1, 2, 3, 4, 5, 6]))
 #    pk2 = sk2.get_public_key()

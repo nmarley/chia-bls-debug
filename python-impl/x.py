@@ -15,6 +15,7 @@ import time
 from threshold import Threshold
 from util import hash256
 from bls12381 import q
+from pairing import (int_to_bits)
 
 setrecursionlimit(10**6)
 
@@ -38,6 +39,9 @@ rp = JacobianPoint(
 # print("NGMpy sk:", sk)
 # print("NGMpy rp:", rp)
 
-res = rp * sk
+# res = rp * sk
 # print("NGMpy res:", res)
 
+
+print("bits =", int_to_bits(7))
+print("bits =", int_to_bits(8))

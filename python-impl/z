@@ -1,5 +1,11 @@
+NGMpy Qs: [AffinePoint(x=Fq2(Fq(0x13eb2e1cb5efcfb31f2c08b235e8203a67265bc6a13d9f0ab77727293b74a357ff0459ac210dc851fcb8a60cb7d393a4), Fq(0x19915cfcf83908ddbeac32039aaa3e8fea82efcb3ba4f740f20c76df5e97109b57370ae32d9b70d256a98942e5806065)), y=Fq2(Fq(0xc434af786ed2d2eca1e6ac57d1d18a4edb283050b94f356b931534fe8ae25c899f32b6b9cf3f8b75c3369082a16de65), Fq(0x155032c9c8e7385f4d05a05da0683c3d0e68f31ba0cd1d50880b9d6dfe882a2547a9d8121a40775f1cf0f00e1091b856)), i=False)
+, AffinePoint(x=Fq2(Fq(0x9e35c2bcad146e49aa19e4df6699d08f9ccc12d1c7625788f2ada0bad3e5741dc736e2935fe3ebcb0fef6db1166786f), Fq(0x1245709e2a671d31cbdd537bb3cdcbde39e66511dd390a4a28a0ee0beea98782695d119e2d7ed66ef3f15e6c2a223bf9)), y=Fq2(Fq(0x1167ad422b392c865d7cbae6adc4f4827a090a6de6c3a9e28f93786e3fc7f516d7dcf8abdbe8df476dda27ba7adb2aad), Fq(0x29180da059941e8194ce794161f2b77266d955d61f591dbb177591b6e6d6792454935b388fb769ac91d739491f7110)), i=False)
+]
 
-PASSED
+NGMpy self.value: AffinePoint(x=Fq2(Fq(0x13eb2..393a4), Fq(0x19915..06065)), y=Fq2(Fq(0xc434a..6de65), Fq(0x15503..1b856)), i=False)
 
-=========================== 1 passed in 3.82 seconds ===========================
+NGMgo XVerify qs: [G2Projective(x=Fq2(Fq(0x13eb2..393a4) + Fq(0x19915..06065) * u), y=Fq2(Fq(0xc434a..6de65) + Fq(0x15503..1b856) * u), z=Fq2(Fq(0x1) + Fq(0x0) * u)) G2Projective(x=Fq2(Fq(0x809b3..a9b98) + Fq(0x119a9..7af61) * u), y=Fq2(Fq(0x18eee..80ade) + Fq(0x628c7..459da) * u), z=Fq2(Fq(0x19bdb..e36dd) + Fq(0x96bcd..edaa2) * u))]
+
+
+=========================== 1 passed in 3.80 seconds ===========================
 #./venv/bin/python ./x.py

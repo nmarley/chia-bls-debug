@@ -24,10 +24,6 @@ class Signature:
     @staticmethod
     def from_bytes(buffer, aggregation_info=None):
         use_big_y = buffer[0] & 0x80
-        prepend = buffer[0] & 0x40
-        if prepend:
-            raise "Should not have prepend bit set"
-
         buffer = bytes([buffer[0] & 0x1f]) + buffer[1:]
 
         x0 = int.from_bytes(buffer[:48], "big")
@@ -318,17 +314,17 @@ class Signature:
                 try:
                     exponent = self.aggregation_info.tree[(message_hash,
                                                            public_key)]
-                    print("NGMpy exponent:", exponent)
+                    # print("NGMpy exponent:", exponent)
                     res = (public_key.value * exponent)
-                    print("NGMpy res:", res)
+                    # print("NGMpy res:", res)
                     public_key_sum += res
-                    print("NGMpy public_key_sum:", public_key_sum)
+                    # print("NGMpy public_key_sum:", public_key_sum)
                 except KeyError:
                     return False
             final_message_hashes.append(message_hash)
             final_public_keys.append(public_key_sum.to_affine())
 
-        print("NGMpy final_public_keys:", final_public_keys)
+        # print("NGMpy final_public_keys:", final_public_keys)
 
         # print("NGMpy final_message_hashes:", final_message_hashes)
         mapped_hashes = [hash_to_point_prehashed_Fq2(mh)
@@ -347,13 +343,22 @@ class Signature:
         # print("NGMpy qfq:", gfq)
 
         g1 = Fq(default_ec.n, -1) * generator_Fq()
-        print("NGMpy g1:", g1)
-
+        # print("NGMpy g1:", g1)
 
         Ps = [g1] + final_public_keys
+        # print("NGMpy Ps:", Ps)
+
         Qs = [self.value.to_affine()] + mapped_hashes
+        # print("NGMpy Qs:", Qs)
+
         res = ate_pairing_multi(Ps, Qs, default_ec)
-        return res == Fq12.one(default_ec.q)
+        print("NGMpy res:", res)
+
+        # print("NGMpy Fq12One:", Fq12.one(default_ec.q))
+
+        rv = (res == Fq12.one(default_ec.q))
+        # print("NGMpy rv:", rv)
+        return rv
 
 
 class PrependSignature:

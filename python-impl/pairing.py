@@ -61,6 +61,8 @@ def miller_loop(T, P, Q, ec=default_ec):
     is taken from Craig Costello's "Pairing for Beginners".
     """
     T_bits = int_to_bits(T)
+    print("NGMpy(miller_loop) T_bits:", T_bits)
+
     R = Q
     f = Fq12.one(ec.q)  # f is an element of Fq12
     for i in range(1, len(T_bits)):
@@ -109,8 +111,15 @@ def ate_pairing_multi(Ps, Qs, ec=default_ec):
     and perform just one final exponentiation.
     """
     t = default_ec.x + 1
+    print("NGMpy(ate_pairing_multi) t:", t)
+
     T = abs(t - 1)
+    print("NGMpy(ate_pairing_multi) T:", T)
+
     prod = Fq12.one(ec.q)
+    print("NGMpy(ate_pairing_multi) prod:", prod)
+
     for i in range(len(Qs)):
         prod *= miller_loop(T, Ps[i], Qs[i], ec)
+        print("NGMpy(ate_pairing_multi) prod:", prod)
     return final_exponentiation(prod, ec)
