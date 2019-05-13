@@ -42,6 +42,20 @@ rp = JacobianPoint(
 # res = rp * sk
 # print("NGMpy res:", res)
 
+eff_queue = Fq(q, 0x09e35c2bcad146e49aa19e4df6699d08f9ccc12d1c7625788f2ada0bad3e5741dc736e2935fe3ebcb0fef6db1166786f)
+#print("type(fq):", type(eff_queue))
+#print("type(fq)==int: ", (type(eff_queue)==int))
 
-print("bits =", int_to_bits(7))
-print("bits =", int_to_bits(8))
+#print("bits =", int_to_bits(7))
+#print("bits =", int_to_bits(8))
+
+
+FqZero = Fq.zero(q)
+Fq2Zero = Fq2.zero(q)
+Fq6Zero = Fq6.zero(q)
+Fq12Zero = Fq12.zero(q)
+
+print("FqZero:", FqZero)
+print("Fq2Zero:", Fq2Zero)
+print("Fq6Zero:", Fq6Zero)
+print("Fq12Zero:", Fq12Zero)

@@ -60,7 +60,7 @@ class Fq(int):
         s2 = s[0:7] + ".." + s[-5:] if len(s) > 10 else s
         return "Fq(" + s2 + ")"
         # NGM
-        #return 'Fq({:096x})'.format(int(self))
+        # return 'Fq({:096x})'.format(int(self))
 
     def __repr__(self):
         return "Fq(" + hex(int(self)) + ")"
@@ -416,6 +416,9 @@ class Fq2(FieldExtBase):
         x1 = a1 * ~(2*x0)
         return Fq2(self.Q, x0, x1)
 
+    def PP(self, indent):
+        spc = " " * indent
+        return "%sFq2(%s, %s)" % (spc, self[0], self[1])
 
 class Fq6(FieldExtBase):
     # Fq6 is constructed as Fq2(v) / (v3 - ξ) where ξ = u + 1
@@ -441,6 +444,15 @@ class Fq6(FieldExtBase):
         a, b, c = self
         return Fq6(self.Q, c * self.root, a, b)
 
+    def PP(self, indent):
+        spc = " " * indent
+        return "%sFq6(\n%s,\n%s,\n%s,\n%s)" % (
+            spc,
+            self[0].PP(indent+4),
+            self[1].PP(indent+4),
+            self[2].PP(indent+4),
+            spc,
+        )
 
 class Fq12(FieldExtBase):
     # Fq12 is constructed as Fq6(w) / (w2 - γ) where γ = v
@@ -455,6 +467,9 @@ class Fq12(FieldExtBase):
         a, b = self
         factor = ~(a*a - (b*b).mul_by_nonresidue())
         return Fq12(self.Q, a * factor, -b * factor)
+
+    def PP(self):
+        return "\nFq12(\n%s,\n%s\n)" % (self[0].PP(4), self[1].PP(4))
 
 
 # Because fields aren't done with metaclasses, and we need to

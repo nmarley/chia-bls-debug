@@ -28,11 +28,8 @@ def double_line_eval(R, P, ec=default_ec):
     f(P).
     """
     R12 = untwist(R)
-    print("\tNGMpy(double_line_eval) R12:", R12)
-
     slope = (3 * pow(R12.x, 2) + ec.a) / (2 * R12.y)
     v = R12.y - slope * R12.x
-
     return P.y - P.x * slope - v
 
 
@@ -62,22 +59,24 @@ def miller_loop(T, P, Q, ec=default_ec):
     is taken from Craig Costello's "Pairing for Beginners".
     """
     T_bits = int_to_bits(T)
-    print("NGMpy(miller_loop) T_bits:", T_bits)
+    # print("NGMpy(miller_loop) T_bits:", T_bits)
 
     R = Q
-    print("NGMpy(miller_loop) R:", R)
+    # print("NGMpy(miller_loop) R:", R)
     f = Fq12.one(ec.q)  # f is an element of Fq12
-    print("NGMpy(miller_loop) f:", f)
+    # print("NGMpy(miller_loop) f:", f)
 
     for i in range(1, len(T_bits)):
         # Compute sloped line lrr
         lrr = double_line_eval(R, P, ec)
-        print("\tNGMpy(miller_loop) lrr:", lrr)
+        # print("\tNGMpy(miller_loop) lrr:", lrr.PP())
 
         f = f * f * lrr
-        print("\tNGMpy(miller_loop) f:", f)
+        print("\tNGMpy(miller_loop) f:", f.PP())
 
         R = 2 * R
+        print("\tNGMpy(miller_loop) R:", R)
+
         if T_bits[i] == 1:
             # Compute sloped line lrq
             lrq = add_line_eval(R, Q, P, ec)
