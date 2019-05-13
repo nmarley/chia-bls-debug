@@ -48,22 +48,7 @@ def add_line_eval(R, Q, P, ec=default_ec):
         return P.x - R12.x
 
     slope = (Q12.y - R12.y) / (Q12.x - R12.x)
-    p1 = (Q12.y - R12.y)
-    p2 = (Q12.x - R12.x)
-    print("NGMpy(add_line_eval) p1:", p1.PP())
-    print("NGMpy(add_line_eval) p2:", p2.PP())
-
-    p2Inv = ~p2
-    print("NGMpy(add_line_eval) p2Inv:", p2Inv.PP())
-
-    s1 = p1 / p2
-    print("NGMpy(add_line_eval) s1:", s1.PP())
-
-    print("NGMpy(add_line_eval) slope:", slope.PP())
-
     v = (Q12.y * R12.x - R12.y * Q12.x) / (R12.x - Q12.x)
-    print("NGMpy(add_line_eval) v:", v.PP())
-
     return P.y - P.x * slope - v
 
 
@@ -86,17 +71,20 @@ def miller_loop(T, P, Q, ec=default_ec):
         # print("\tNGMpy(miller_loop) lrr:", lrr.PP())
 
         f = f * f * lrr
-        print("\tNGMpy(miller_loop) f:", f.PP())
+        # print("NGMpy(miller_loop) f:", f.PP())
 
         R = 2 * R
-        print("\tNGMpy(miller_loop) R:", R)
+        # print("NGMpy(miller_loop) R:", R)
 
         if T_bits[i] == 1:
             # Compute sloped line lrq
             lrq = add_line_eval(R, Q, P, ec)
+            # print("NGMpy(miller_loop) lrq:", lrq.PP())
             f = f * lrq
+            # print("NGMpy(miller_loop) f:", f.PP())
 
             R = R + Q
+            # print("NGMpy(miller_loop) r:", R)
     return f
 
 
@@ -131,15 +119,17 @@ def ate_pairing_multi(Ps, Qs, ec=default_ec):
     and perform just one final exponentiation.
     """
     t = default_ec.x + 1
-    print("NGMpy(ate_pairing_multi) t:", t)
+    # print("NGMpy(ate_pairing_multi) t:", t)
 
     T = abs(t - 1)
-    print("NGMpy(ate_pairing_multi) T:", T)
+    # print("NGMpy(ate_pairing_multi) T:", T)
 
     prod = Fq12.one(ec.q)
-    print("NGMpy(ate_pairing_multi) prod:", prod)
+    # print("NGMpy(ate_pairing_multi) prod:", prod)
 
     for i in range(len(Qs)):
-        prod *= miller_loop(T, Ps[i], Qs[i], ec)
-        print("NGMpy(ate_pairing_multi) prod:", prod)
+        xml = miller_loop(T, Ps[i], Qs[i], ec)
+        print("NGMpy(ate_pairing_multi) xml:", xml.PP())
+        prod *= xml
+        print("NGMpy(ate_pairing_multi) prod:", prod.PP())
     return final_exponentiation(prod, ec)
