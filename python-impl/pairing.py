@@ -95,8 +95,14 @@ def final_exponentiation(element, ec=default_ec):
     """
     if ec.k == 12:
         ans = pow(element, (pow(ec.q,4) - pow(ec.q,2) + 1) // ec.n)
+        print("NGMpy(final_exponentiation) ans1:", ans.PP())
+
         ans = ans.qi_power(2) * ans
+        print("NGMpy(final_exponentiation) ans2:", ans.PP())
+
         ans = ans.qi_power(6) / ans
+        print("NGMpy(final_exponentiation) ans3:", ans.PP())
+
         return ans
     else:
         return pow(element, (pow(ec.q, ec.k) - 1) // ec.n)
