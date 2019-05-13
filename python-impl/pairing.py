@@ -48,7 +48,21 @@ def add_line_eval(R, Q, P, ec=default_ec):
         return P.x - R12.x
 
     slope = (Q12.y - R12.y) / (Q12.x - R12.x)
+    p1 = (Q12.y - R12.y)
+    p2 = (Q12.x - R12.x)
+    print("NGMpy(add_line_eval) p1:", p1.PP())
+    print("NGMpy(add_line_eval) p2:", p2.PP())
+
+    p2Inv = ~p2
+    print("NGMpy(add_line_eval) p2Inv:", p2Inv.PP())
+
+    s1 = p1 / p2
+    print("NGMpy(add_line_eval) s1:", s1.PP())
+
+    print("NGMpy(add_line_eval) slope:", slope.PP())
+
     v = (Q12.y * R12.x - R12.y * Q12.x) / (R12.x - Q12.x)
+    print("NGMpy(add_line_eval) v:", v.PP())
 
     return P.y - P.x * slope - v
 

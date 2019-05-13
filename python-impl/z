@@ -25,8 +25,85 @@ Fq12(
     )
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x113ea..e8289), Fq(0x11beb..d08f5)), y=Fq2(Fq(0x12edc..5b793), Fq(0x18851..fc9dc)), i=False)
-x=    Fq2(Fq(0x113ea..e8289), Fq(0x11beb..d08f5)), y=    Fq2(Fq(0x12edc..5b793), Fq(0x18851..fc9dc))
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x15116..13551), Fq(0x1bacb..063d4)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x12401..c099b), Fq(0xf9399..6f880)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xa8365..a1c05), Fq(0xadac1..c5cd9)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x77fb6..dd676), Fq(0x7c0af..0b08b)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x77fb6..dd676), Fq(0x7c0af..0b08b)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x34c05..92e64), Fq(0xf8e9b..6815c)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -57,6 +134,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x1781f..63a87), Fq(0x11aee..5d433)), y=Fq2(Fq(0x92c39..f0406), Fq(0x1743c..66494)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xd9244..96c66), Fq(0xa7b33..19207)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xf2658..bc7fd), Fq(0x12bd2..e6ee0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xda4f4..d21a7), Fq(0x3b8e6..701fe)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x10d94..e2c58), Fq(0x6587d..3eee5)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x10d94..e2c58), Fq(0x6587d..3eee5)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x17ab3..28309), Fq(0x12aa9..19d99)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -102,6 +257,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x1440c..b0b9d), Fq(0x86458..8a5f5)), y=Fq2(Fq(0xb8728..8596a), Fq(0xb47a4..4cf4a)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x1262e..58c59), Fq(0x11a6b..7075e)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x156c3..ff691), Fq(0x15c1d..76e8a)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xba512..a5c45), Fq(0xb7ee5..ac1da)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xa6a89..e8c39), Fq(0x5c195..a048f)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xa6a89..e8c39), Fq(0x5c195..a048f)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xe1b2f..f7a59), Fq(0xd84a8..b58ba)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -237,6 +470,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x126df..5b06d), Fq(0xc1149..55c12)), y=Fq2(Fq(0x11910..8fd8a), Fq(0x171b7..f4298)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x97403..800a2), Fq(0xec1c3..a1fc7)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x77ea7..473c5), Fq(0x6016b..6908e)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xd2d4b..3fa35), Fq(0x19157..c2f1f)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x20f68..59116), Fq(0x13d6a..5a166)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x20f68..59116), Fq(0x13d6a..5a166)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x11170..d2f4a), Fq(0x15089..81b82)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -717,6 +1028,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x39ded..bef76), Fq(0x179c2..ea426)), y=Fq2(Fq(0x16cc7..153a7), Fq(0x164ae..320ec)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x143f2..1bbbf), Fq(0x4c73a..c8656)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x1621b..c858c), Fq(0x5d47f..4e15e)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x9902b..e7ae4), Fq(0x3ba25..19ac5)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xcb79f..be2b0), Fq(0x11685..e635c)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xcb79f..be2b0), Fq(0x11685..e635c)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xa4e00..bea6e), Fq(0x1561b..97406)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -973,6 +1362,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x1135c..28f42), Fq(0x65b00..dc790)), y=Fq2(Fq(0x11988..a416e), Fq(0x1545a..4390e)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x259d7..de5f6), Fq(0x28aaa..cfcb7)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x24c05..c2ecb), Fq(0x99e6a..8459e)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x12d99..71f79), Fq(0x12c82..03be9)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x17fa5..cc01f), Fq(0x141a4..31563)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x17fa5..cc01f), Fq(0x141a4..31563)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x10fc9..106f8), Fq(0xa308b..535a2)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -1003,6 +1470,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x1983d..0908b), Fq(0x14657..7df9d)), y=Fq2(Fq(0x132f7..90f87), Fq(0x47a2a..1e56c)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x16f4a..77e10), Fq(0x18bc6..562ea)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x1120c..fcccb), Fq(0x6c034..a3a3c)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x1655d..e8af9), Fq(0x16779..c6722)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xaf416..e7a31), Fq(0xd3161..59394)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xaf416..e7a31), Fq(0xd3161..59394)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x109ba..c7a5f), Fq(0x19e68..25a66)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -1048,6 +1593,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x19f4a..e1443), Fq(0x14695..25203)), y=Fq2(Fq(0x2dc17..30dec), Fq(0x12bec..8fb75)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x17fc0..6f3d9), Fq(0x97070..ed718)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x10e67..bd1bc), Fq(0x6f6b4..3c2e5)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x12f50..0684a), Fq(0x18b6f..6671a)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xfe040..2df8d), Fq(0x1a1ba..c9ab6)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xfe040..2df8d), Fq(0x1a1ba..c9ab6)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x12467..d6c62), Fq(0x37820..14ebb)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -1183,6 +1806,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x4a1a8..d7347), Fq(0x17f95..2fa92)), y=Fq2(Fq(0x17561..f4591), Fq(0x15394..e0eb6)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xc81c4..e4e66), Fq(0x12702..2694a)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0xcc76c..bf89d), Fq(0x785b9..2f375)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x6af3a..f4850), Fq(0x201a8..6462a)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x278b8..a397f), Fq(0x11111..7573a)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x278b8..a397f), Fq(0x11111..7573a)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x31e8e..8b616), Fq(0x10d24..6401d)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -1663,6 +2364,84 @@ Fq12(
 )
 	NGMpy(miller_loop) R: AffinePoint(x=Fq2(Fq(0x12626..cedfc), Fq(0x16499..4b496)), y=Fq2(Fq(0x13145..d4bbc), Fq(0xcdc64..96023)), i=False)
 
+NGMpy(add_line_eval) p1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x7c8dc..9f7ef), Fq(0x11938..bc3a9)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x13bf7..33396), Fq(0x23d72..9fe78)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) p2Inv: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x1917a..5d4a1), Fq(0x99f3f..c6afd)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
+NGMpy(add_line_eval) s1: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x15490..d4702), Fq(0xd1352..9192c)),
+    )
+)
+NGMpy(add_line_eval) slope: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x15490..d4702), Fq(0xd1352..9192c)),
+    )
+)
+NGMpy(add_line_eval) v: 
+Fq12(
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    ),
+    Fq6(
+        Fq2(Fq(0x0), Fq(0x0)),
+        Fq2(Fq(0x12140..b36fc), Fq(0xbea2d..aabc3)),
+        Fq2(Fq(0x0), Fq(0x0)),
+    )
+)
 	NGMpy(miller_loop) f: 
 Fq12(
     Fq6(
@@ -1907,5 +2686,5 @@ NGMpy(ate_pairing_multi) prod: Fq12(Fq6(Fq2(Fq(0xc4e16..16ff4), Fq(0x39e80..d635
 NGMpy res: Fq12(Fq6(Fq2(Fq(0x1), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))), Fq6(Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0)), Fq2(Fq(0x0), Fq(0x0))))
 PASSED
 
-=========================== 1 passed in 3.90 seconds ===========================
+=========================== 1 passed in 4.28 seconds ===========================
 #./venv/bin/python ./x.py
