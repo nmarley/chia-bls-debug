@@ -58,33 +58,20 @@ def miller_loop(T, P, Q, ec=default_ec):
     is taken from Craig Costello's "Pairing for Beginners".
     """
     T_bits = int_to_bits(T)
-    # print("NGMpy(miller_loop) T_bits:", T_bits)
-
     R = Q
-    # print("NGMpy(miller_loop) R:", R)
     f = Fq12.one(ec.q)  # f is an element of Fq12
-    # print("NGMpy(miller_loop) f:", f)
 
     for i in range(1, len(T_bits)):
         # Compute sloped line lrr
         lrr = double_line_eval(R, P, ec)
-        # print("\tNGMpy(miller_loop) lrr:", lrr.PP())
-
         f = f * f * lrr
-        # print("NGMpy(miller_loop) f:", f.PP())
-
         R = 2 * R
-        # print("NGMpy(miller_loop) R:", R)
 
         if T_bits[i] == 1:
             # Compute sloped line lrq
             lrq = add_line_eval(R, Q, P, ec)
-            # print("NGMpy(miller_loop) lrq:", lrq.PP())
             f = f * lrq
-            # print("NGMpy(miller_loop) f:", f.PP())
-
             R = R + Q
-            # print("NGMpy(miller_loop) r:", R)
     return f
 
 
@@ -95,14 +82,8 @@ def final_exponentiation(element, ec=default_ec):
     """
     if ec.k == 12:
         ans = pow(element, (pow(ec.q,4) - pow(ec.q,2) + 1) // ec.n)
-        print("NGMpy(final_exponentiation) ans1:", ans.PP())
-
         ans = ans.qi_power(2) * ans
-        print("NGMpy(final_exponentiation) ans2:", ans.PP())
-
         ans = ans.qi_power(6) / ans
-        print("NGMpy(final_exponentiation) ans3:", ans.PP())
-
         return ans
     else:
         return pow(element, (pow(ec.q, ec.k) - 1) // ec.n)
@@ -125,17 +106,10 @@ def ate_pairing_multi(Ps, Qs, ec=default_ec):
     and perform just one final exponentiation.
     """
     t = default_ec.x + 1
-    # print("NGMpy(ate_pairing_multi) t:", t)
-
     T = abs(t - 1)
-    # print("NGMpy(ate_pairing_multi) T:", T)
-
     prod = Fq12.one(ec.q)
-    # print("NGMpy(ate_pairing_multi) prod:", prod)
 
     for i in range(len(Qs)):
         xml = miller_loop(T, Ps[i], Qs[i], ec)
-        print("NGMpy(ate_pairing_multi) xml:", xml.PP())
         prod *= xml
-        print("NGMpy(ate_pairing_multi) prod:", prod.PP())
     return final_exponentiation(prod, ec)
