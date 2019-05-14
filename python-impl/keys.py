@@ -144,7 +144,6 @@ class PrivateKey:
     def sign(self, m):
         r = hash_to_point_Fq2(m).to_jacobian()
         aggregation_info = AggregationInfo.from_msg(self.get_public_key(), m)
-        print("NGMpy aggregation_info =", aggregation_info)
         return Signature.from_g2(self.value * r, aggregation_info)
 
     def sign_prehashed(self, h):
@@ -241,6 +240,7 @@ class ExtendedPrivateKey:
         sk_int = int.from_bytes(i_left, "big") % default_ec.n
         sk = PrivateKey.from_bytes(
             sk_int.to_bytes(PrivateKey.PRIVATE_KEY_SIZE, "big"))
+
         return ExtendedPrivateKey(ExtendedPrivateKey.version, 0, 0,
                                   0, i_right, sk)
 
@@ -257,6 +257,7 @@ class ExtendedPrivateKey:
             hmac_input = self.private_key.get_public_key().serialize()
 
         hmac_input += i.to_bytes(4, "big")
+
         i_left = hmac256(hmac_input + bytes([0]), self.chain_code)
         i_right = hmac256(hmac_input + bytes([1]), self.chain_code)
 
