@@ -20,42 +20,34 @@ from pairing import (int_to_bits)
 setrecursionlimit(10**6)
 
 
-sk = 0x22fb42c08c12de3a6af053880199806532e79515f94e83461612101f9412f9e
-rp = JacobianPoint(
-    Fq2(q,
-        0x09e35c2bcad146e49aa19e4df6699d08f9ccc12d1c7625788f2ada0bad3e5741dc736e2935fe3ebcb0fef6db1166786f,
-        0x1245709e2a671d31cbdd537bb3cdcbde39e66511dd390a4a28a0ee0beea98782695d119e2d7ed66ef3f15e6c2a223bf9,
-    ),
-    Fq2(q,
-        0x1167ad422b392c865d7cbae6adc4f4827a090a6de6c3a9e28f93786e3fc7f516d7dcf8abdbe8df476dda27ba7adb2aad,
-        0x0029180da059941e8194ce794161f2b77266d955d61f591dbb177591b6e6d6792454935b388fb769ac91d739491f7110,
-    ),
-    Fq2(q,
-        0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
-        0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
-    ),
-    False,
-)
-# print("NGMpy sk:", sk)
-# print("NGMpy rp:", rp)
-
-# res = rp * sk
+# x = Fq(q, 0x02a8d2aaa6a5e2e08d4b8d406aaf0121a2fc2088ed12431e6b0663028da9ac5922c9ea91cde7dd74b7d795580acc7a61)
+# y = Fq(q, 0x0145bcfef3c097722ea4994dc043be38a47ca15cf0f7622286ba6f85c4b5ddd412c43042938ab6a2eafcaae38119e305)
+# z = Fq.one(q)
+#
+# jp = JacobianPoint(x, y, z, False)
+# n = 7429792268441337100724157164307770750544294956256514405682157408702131069250
+# print("NGMpy jp:", jp)
+# print("NGMpy n:", n)
+#
+# res = jp * n
 # print("NGMpy res:", res)
 
-eff_queue = Fq(q, 0x09e35c2bcad146e49aa19e4df6699d08f9ccc12d1c7625788f2ada0bad3e5741dc736e2935fe3ebcb0fef6db1166786f)
-#print("type(fq):", type(eff_queue))
-#print("type(fq)==int: ", (type(eff_queue)==int))
+# ========================================================================
 
-#print("bits =", int_to_bits(7))
-#print("bits =", int_to_bits(8))
+p1x= Fq(q,0x01a89b5b9147007d2f6d05419c96928acbf319b5563c3f05a12ee0b11265d8d24e3fccd613ba5e4bc59d40d80d0cb734)
+p1y= Fq(q,0x14fa6c10f0b6a3691f19d01560a410081b16486f49f03f8bafb45c149c5664b610494be7c234e674d9e1e4c45dd3ac5d)
+p1z= Fq(q,0x028b79fde7812ee45d49329b80877c7148f942b9e1eec4450d74df0b896bbba82588608527156d45d5f955c70233c60a)
 
+p2x= Fq(q,0x0241693bcdbbd80196f04dda45614cde8ce7830b67e160aa5d9865dc8da4eb868a49edaf0f47a8e5a9d6ea8674f2adec)
+p2y= Fq(q,0x1465ed4d5ea6cefed637b0849112d1181b734354ebf5737be960a38c09a94fad3b0f7145dac1e4eaed1b25178756e7b4)
+p2z= Fq(q,0x06d9b63732d28524ace23d230dfc5002194c7d2c26be6f4c7c86735f7c5896395e494f57c49811fa938077233b9387b7)
 
-FqZero = Fq.zero(q)
-Fq2Zero = Fq2.zero(q)
-Fq6Zero = Fq6.zero(q)
-Fq12Zero = Fq12.zero(q)
+resX= Fq(q,0x157cab11ec3354b77ccce4cfa8a4063897f62d55b75a49f51fa568b09e4dbb87416987d4e65b145371586340eddd2520)
+resY= Fq(q,0x025b922e4d1e76beb38b242c22d76c77d0daddac848e27dc3f16465005634f27ea64cc4101513df6207cb56f204250d0)
+resZ= Fq(q,0x1223495578cfe0f0a9c2b09343931aa52d197f32ae098d63c1b2cb683ccf120be5691b24083b642060660489e81a0803)
 
-print("FqZero:", FqZero)
-print("Fq2Zero:", Fq2Zero)
-print("Fq6Zero:", Fq6Zero)
-print("Fq12Zero:", Fq12Zero)
+p1 = JacobianPoint(p1x, p1y, p1z, False)
+p2 = JacobianPoint(p2x, p2y, p2z, False)
+expected = JacobianPoint(resX, resY, resZ, False)
+
+res = p1 + p2
