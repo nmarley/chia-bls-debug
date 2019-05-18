@@ -59,12 +59,12 @@ class AffinePoint:
     def __str__(self):
         return ("AffinePoint(x=" + self.x.__str__() +
                 ", y=" + self.y.__str__() +
-                ", i=" + str(self.infinity) + ")\n")
+                ", i=" + str(self.infinity) + ")")
 
     def __repr__(self):
         return ("AffinePoint(x=" + self.x.__repr__() +
                 ", y=" + self.y.__repr__() +
-                ", i=" + str(self.infinity) + ")\n")
+                ", i=" + str(self.infinity) + ")")
 
     def __eq__(self, other):
         if not isinstance(other, AffinePoint):
@@ -156,7 +156,7 @@ class JacobianPoint:
         return ("JacobianPoint(x=" + self.x.__str__() +
                 ", y=" + self.y.__str__() +
                 ", z=" + self.z.__str__() +
-                ", i=" + str(self.infinity) + ")\n")
+                ", i=" + str(self.infinity) + ")")
 
     def __eq__(self, other):
         if not isinstance(other, JacobianPoint):
