@@ -164,6 +164,16 @@ class AggregationInfo:
         non_colliding_infos.append(combined)
         return AggregationInfo.simple_merge_infos(non_colliding_infos)
 
+    def print_tree(self):
+        print("AI Tree:")
+        for k, v in self.tree:
+            exp = self.tree[(k,v)]
+            mh_str = "{}".format(k.hex())
+            pubkey_str = "{}".format(v.serialize().hex())
+            pubkey_str = pubkey_str[0:5] + ".." + pubkey_str[-5:]
+            mk_str = "MapKey=PK(%s),MH(%s),Exponent=%s" % (pubkey_str, mh_str, exp)
+            print("\t%s" % (mk_str))
+
 
 """
 Copyright 2018 Chia Network Inc
