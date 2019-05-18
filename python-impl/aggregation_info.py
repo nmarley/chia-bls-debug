@@ -168,7 +168,7 @@ class AggregationInfo:
         return AggregationInfo.simple_merge_infos(non_colliding_infos)
 
     def print_tree(self):
-        print("AI Tree:")
+        print("\nAI Tree:")
         for k, v in self.tree:
             exp = self.tree[(k,v)]
             mh_str = "{}".format(k.hex())
