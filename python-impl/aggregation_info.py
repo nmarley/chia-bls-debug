@@ -56,6 +56,9 @@ class AggregationInfo:
                     + "):\n" + hex(value) + "\n")
         return ret
 
+    def __repr__(self):
+        return self.__str__()
+
     def __deepcopy__(self, memo):
         new_tree = deepcopy(self.tree, memo)
         new_mh = deepcopy(self.message_hashes, memo)
