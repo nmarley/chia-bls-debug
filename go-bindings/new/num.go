@@ -1,5 +1,7 @@
 package num
 
+// #cgo LDFLAGS: -L. -lstdc++
+// #cgo CXXFLAGS: -std=c++14 -I.
 // #include "num.h"
 import "C"
 import "unsafe"
@@ -14,11 +16,11 @@ func New() GoNum {
 	return ret
 }
 func (n GoNum) Free() {
-	C.NumFree(unsafe.Pointer(n.num))
+	C.NumFree((C.Num)(unsafe.Pointer(n.num)))
 }
 func (n GoNum) Inc() {
-	C.NumIncrement(unsafe.Pointer(n.num))
+	C.NumIncrement((C.Num)(unsafe.Pointer(n.num)))
 }
 func (n GoNum) GetValue() int {
-	return int(C.NumGetValue(unsafe.Pointer(n.num)))
+	return int(C.NumGetValue((C.Num)(unsafe.Pointer(n.num))))
 }
