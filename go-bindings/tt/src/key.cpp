@@ -15,5 +15,9 @@ void Key::SetColour(std::string colour) {
     this->colour = colour;
 }
 
+uint8_t* Key::GetBytes() {
+    return this->keydata;
+}
+
 Key::Key() { }
 Key::~Key() { }

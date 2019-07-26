@@ -9,6 +9,7 @@ class Key {
     std::string colour{"white"};
 
 public:
+    uint8_t* GetBytes();
     static Key FromBytes(uint8_t* bytes);
     std::string GetColour();
     void SetColour(std::string);
