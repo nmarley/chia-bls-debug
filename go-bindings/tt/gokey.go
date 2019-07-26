@@ -2,23 +2,23 @@
 package gokey
 
 // #cgo CXXFLAGS: -std=c++14
-// #cgo LDFLAGS: -L./src -lkey
 // #include "gokey.h"
 import "C"
 
 // Key struct
 type Key struct {
-    key C.Key
+	key C.gokey
 }
 
 // New creates a new Key object
 func New() Key {
-    var ret Key
-    ret.key = C.KeyInit()
-    return ret
+	var ret Key
+	ret.key = C.new_key()
+	return ret
 }
 
 // Free frees the key object
-func (k Key) Free() {
-    C.KeyFree(k.key)
-}
+//func (k Key) Free() {
+//	C.KeyFree(k.key)
+//}
+// #cgo LDFLAGS: -L./src

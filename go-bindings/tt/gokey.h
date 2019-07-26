@@ -3,14 +3,21 @@
 #ifndef _GOKEY_H_
 #define _GOKEY_H_
 
+#include <inttypes.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef void* Key;
+// C++ -> C struct remap of Key
+typedef struct {
+    uint8_t *keydata;
+    const char *colour;
+} gokey;
 
-Key KeyInit(void);
-void KeyFree(Key k);
+gokey new_key(void);
+// KeyInit(void);
+void KeyFree(gokey k);
 
 #ifdef __cplusplus
 }
