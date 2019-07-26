@@ -9,4 +9,4 @@ go build  # this only ensures it compiles
 
 ## Test
 
-go test  # actually runs a test
+go test  # actually runs tests
