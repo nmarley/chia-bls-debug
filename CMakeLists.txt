@@ -84,4 +84,5 @@ else()
   # emscripten can't build python bindings, it produces only javascript
   add_subdirectory(contrib/pybind11)
   add_subdirectory(python-bindings)
+  add_subdirectory(go-bindings)
 endif()
