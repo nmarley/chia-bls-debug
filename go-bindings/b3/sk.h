@@ -1,6 +1,7 @@
 // sk.h
 #include "pk.h"
 #ifdef __cplusplus
+#include <stdbool.h>
 extern "C" {
 #endif
 
@@ -8,6 +9,7 @@ extern "C" {
 
 typedef void* SecretKey;
 SecretKey SecretKeyFromSeed(void *, int);
+SecretKey SecretKeyFromBytes(void *, bool);
 void* SKSerialize(SecretKey);
 void SecretKeyFree(SecretKey);
 

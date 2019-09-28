@@ -2,6 +2,7 @@ package blschia
 
 import (
 	"bytes"
+	// "math/big"
 	// "fmt"
 	"testing"
 )
@@ -46,4 +47,12 @@ func TestSecretKey(t *testing.T) {
 
 	pk.Free()
 	sk.Free()
+
+	// bigResult := new(big.Int).SetBytes(result)
+	// sk2 := SecretKeyFromBytes(bigResult, false)
+	// keyBytes2 := sk2.Serialize()
+	// if !bytes.Equal(keyBytes2, result) {
+	// 	t.Errorf("Got %v, expected %v", keyBytes2, result)
+	// }
+	// sk2.Free()
 }

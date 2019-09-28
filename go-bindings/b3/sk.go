@@ -2,6 +2,7 @@ package blschia
 
 // #cgo LDFLAGS: -L../../build -lbls -lstdc++
 // #cgo CXXFLAGS: -std=c++14 -I../../src -I../../build/contrib/relic/include -I../../contrib/relic/include
+// #include <stdbool.h>
 // #include <stdlib.h>
 // #include "sk.h"
 import "C"
@@ -23,6 +24,18 @@ func SecretKeyFromSeed(seed []byte) GoSecretKey {
 	runtime.SetFinalizer(&ret, func(p *GoSecretKey) { p.Free() })
 	return ret
 }
+
+// SecretKeyFromBytes creates a new SecretKey object from the raw bytes
+// func SecretKeyFromBytes(data []byte, modOrder bool) GoSecretKey {
+// 	var ret GoSecretKey
+//
+// 	// convert to C here
+// 	cbytes := C.CBytes(data)
+// 	defer C.free(cbytes)
+// 	ret.sk = C.SecretKeyFromBytes(cbytes, C.bool(modOrder))
+// 	runtime.SetFinalizer(&ret, func(p *GoSecretKey) { p.Free() })
+// 	return ret
+// }
 
 // Free releases memory allocated by the sk
 func (sk GoSecretKey) Free() {
